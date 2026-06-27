@@ -9,12 +9,14 @@
     <link rel="preconnect" href="https://commons.wikimedia.org" crossorigin />
     <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin />
     <link
-      href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap"
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=general-sans@400,500,600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
+    <div class="grain" aria-hidden="true"></div>
+
     <!-- ===== NAV ===== -->
     <header class="nav" id="nav">
       <div class="nav__inner">
@@ -50,18 +52,16 @@
             </p>
 
             <div class="hero__cta">
-              <a href="#competitions" class="btn btn--primary btn--lg">
+              <a href="#competitions" class="btn btn--accent btn--lg">
                 Browse competitions
               </a>
               <a href="#how" class="btn btn--ghost btn--lg">See how it works</a>
             </div>
 
             <div class="hero__trust">
-              <div class="hero__rating">
-                <strong>Excellent</strong>
-                <span class="stars" aria-hidden="true">★★★★★</span>
-                <span>4.8 / 5 from 21,400+ players</span>
-              </div>
+              <strong>Excellent</strong>
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span>4.8 / 5 from 21,400+ players</span>
             </div>
           </div>
 
@@ -92,12 +92,12 @@
               <div class="featured__foot">
                 <div class="countdown" data-countdown-hours="46" aria-label="Time remaining">
                   <div class="countdown__unit"><b data-cd="h">00</b><span>hrs</span></div>
+                  <span class="countdown__sep">:</span>
                   <div class="countdown__unit"><b data-cd="m">00</b><span>min</span></div>
+                  <span class="countdown__sep">:</span>
                   <div class="countdown__unit"><b data-cd="s">00</b><span>sec</span></div>
                 </div>
-                <button class="btn btn--primary" data-comp="porsche">
-                  Enter from <span class="featured__price">£2.49</span>
-                </button>
+                <span class="btn btn--accent">Enter from&nbsp;<span class="featured__price">£2.49</span></span>
               </div>
             </div>
           </article>
@@ -109,8 +109,8 @@
         <div class="section-head">
           <h2 class="section-title" data-reveal>Live competitions</h2>
           <p class="section-lead" data-reveal>
-            Tap a competition to see the full prize, the odds and the skill
-            question. Every winner is real and announced on the live draw.
+            Open any competition to see the full prize, the odds and the skill
+            question. Every winner is real and drawn live on stream.
           </p>
         </div>
 
@@ -132,7 +132,7 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="18">ends in 18h</span>
-                <span class="btn btn--primary btn--sm" data-comp="rolex">Enter</span>
+                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>
           </article>
@@ -154,7 +154,7 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="9">ends in 9h</span>
-                <span class="btn btn--primary btn--sm" data-comp="cash25k">Enter</span>
+                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>
           </article>
@@ -176,7 +176,7 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="63">ends in 2d</span>
-                <span class="btn btn--primary btn--sm" data-comp="maldives">Enter</span>
+                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>
           </article>
@@ -198,7 +198,7 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="5">ends in 5h</span>
-                <span class="btn btn--primary btn--sm" data-comp="apple">Enter</span>
+                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>
           </article>
@@ -220,7 +220,7 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="40">ends in 40h</span>
-                <span class="btn btn--primary btn--sm" data-comp="defender">Enter</span>
+                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>
           </article>
@@ -242,7 +242,7 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="27">ends in 27h</span>
-                <span class="btn btn--primary btn--sm" data-comp="vouchers">Enter</span>
+                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
               </div>
             </div>
           </article>
@@ -252,11 +252,12 @@
       <!-- ===== HOW IT WORKS ===== -->
       <section class="how" id="how">
         <div class="how__intro">
+          <span class="eyebrow" data-reveal>How it works</span>
           <h2 class="section-title" data-reveal>A game of skill, in three steps</h2>
           <p class="section-lead" data-reveal>
             In 4 A Win is a prize competition, not a lottery. Winners are decided
-            by skill, you have to answer a question correctly to qualify. Free
-            postal entry is always available.
+            by skill, you answer a question correctly to qualify. A free postal
+            entry route is always available.
           </p>
         </div>
         <ol class="steps">
@@ -290,7 +291,7 @@
       <!-- ===== WINNERS ===== -->
       <section class="winners" id="winners">
         <div class="section-head section-head--center">
-          <span class="pill pill--quiet" data-reveal>Real people. Real prizes.</span>
+          <span class="eyebrow" data-reveal>Real people, real prizes</span>
           <h2 class="section-title" data-reveal>This month's winners</h2>
         </div>
 
@@ -353,7 +354,7 @@
         </div>
       </section>
 
-      <!-- ===== STATS BAND ===== -->
+      <!-- ===== STATS ===== -->
       <section class="stats">
         <div class="stats__row">
           <div class="stat" data-reveal>
@@ -366,7 +367,7 @@
           </div>
           <div class="stat" data-reveal>
             <b class="stat__num js-count" data-to="48" data-suffix="h">0</b>
-            <span class="stat__label">Avg. payout time</span>
+            <span class="stat__label">Average payout time</span>
           </div>
           <div class="stat" data-reveal>
             <b class="stat__num js-count" data-to="14">0</b>
@@ -383,7 +384,7 @@
             Tickets from 50p. Answer the skill question, qualify, and you could be
             our next winner. Free postal entry always available.
           </p>
-          <a href="#competitions" class="btn btn--primary btn--lg" data-reveal>
+          <a href="#competitions" class="btn btn--accent btn--lg" data-reveal>
             Browse competitions
           </a>
         </div>

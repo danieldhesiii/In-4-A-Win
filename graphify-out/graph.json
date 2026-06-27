@@ -10,7 +10,8 @@
           "in4awin_index_splitting_heading",
           "in4awin_index_progress",
           "in4awin_index_count_up",
-          "in4awin_index_countdown"
+          "in4awin_index_countdown",
+          "in4awin_index_grain"
         ],
         "relation": "participate_in",
         "confidence": "INFERRED",
@@ -42,9 +43,10 @@
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
+      "id": "package",
       "community": 1,
-      "norm_label": "package.json",
-      "id": "package"
+      "community_name": "Build Scripts",
+      "norm_label": "package.json"
     },
     {
       "label": "name",
@@ -52,9 +54,10 @@
       "source_file": "package.json",
       "source_location": "L2",
       "_origin": "ast",
+      "id": "package_name",
       "community": 1,
-      "norm_label": "name",
-      "id": "package_name"
+      "community_name": "Build Scripts",
+      "norm_label": "name"
     },
     {
       "label": "version",
@@ -62,9 +65,10 @@
       "source_file": "package.json",
       "source_location": "L3",
       "_origin": "ast",
+      "id": "package_version",
       "community": 1,
-      "norm_label": "version",
-      "id": "package_version"
+      "community_name": "Build Scripts",
+      "norm_label": "version"
     },
     {
       "label": "description",
@@ -72,9 +76,10 @@
       "source_file": "package.json",
       "source_location": "L4",
       "_origin": "ast",
+      "id": "package_description",
       "community": 1,
-      "norm_label": "description",
-      "id": "package_description"
+      "community_name": "Build Scripts",
+      "norm_label": "description"
     },
     {
       "label": "scripts",
@@ -82,9 +87,10 @@
       "source_file": "package.json",
       "source_location": "L5",
       "_origin": "ast",
+      "id": "package_scripts",
       "community": 1,
-      "norm_label": "scripts",
-      "id": "package_scripts"
+      "community_name": "Build Scripts",
+      "norm_label": "scripts"
     },
     {
       "label": "dev",
@@ -92,9 +98,10 @@
       "source_file": "package.json",
       "source_location": "L6",
       "_origin": "ast",
+      "id": "package_scripts_dev",
       "community": 1,
-      "norm_label": "dev",
-      "id": "package_scripts_dev"
+      "community_name": "Build Scripts",
+      "norm_label": "dev"
     },
     {
       "label": "build",
@@ -102,9 +109,10 @@
       "source_file": "package.json",
       "source_location": "L7",
       "_origin": "ast",
+      "id": "package_scripts_build",
       "community": 1,
-      "norm_label": "build",
-      "id": "package_scripts_build"
+      "community_name": "Build Scripts",
+      "norm_label": "build"
     },
     {
       "label": "preview",
@@ -112,9 +120,10 @@
       "source_file": "package.json",
       "source_location": "L8",
       "_origin": "ast",
+      "id": "package_scripts_preview",
       "community": 1,
-      "norm_label": "preview",
-      "id": "package_scripts_preview"
+      "community_name": "Build Scripts",
+      "norm_label": "preview"
     },
     {
       "label": "type",
@@ -122,9 +131,10 @@
       "source_file": "package.json",
       "source_location": "L10",
       "_origin": "ast",
+      "id": "package_type",
       "community": 1,
-      "norm_label": "type",
-      "id": "package_type"
+      "community_name": "Build Scripts",
+      "norm_label": "type"
     },
     {
       "label": "devDependencies",
@@ -132,9 +142,10 @@
       "source_file": "package.json",
       "source_location": "L11",
       "_origin": "ast",
+      "id": "package_devdependencies",
       "community": 1,
-      "norm_label": "devdependencies",
-      "id": "package_devdependencies"
+      "community_name": "Build Scripts",
+      "norm_label": "devdependencies"
     },
     {
       "label": "vite",
@@ -142,9 +153,10 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
+      "id": "package_devdependencies_vite",
       "community": 1,
-      "norm_label": "vite",
-      "id": "package_devdependencies_vite"
+      "community_name": "Build Scripts",
+      "norm_label": "vite"
     },
     {
       "label": "dependencies",
@@ -152,9 +164,10 @@
       "source_file": "package.json",
       "source_location": "L14",
       "_origin": "ast",
+      "id": "package_dependencies",
       "community": 4,
-      "norm_label": "dependencies",
-      "id": "package_dependencies"
+      "community_name": "Animation Dependencies",
+      "norm_label": "dependencies"
     },
     {
       "label": "gsap",
@@ -162,9 +175,10 @@
       "source_file": "package.json",
       "source_location": "L15",
       "_origin": "ast",
+      "id": "package_dependencies_gsap",
       "community": 4,
-      "norm_label": "gsap",
-      "id": "package_dependencies_gsap"
+      "community_name": "Animation Dependencies",
+      "norm_label": "gsap"
     },
     {
       "label": "lenis",
@@ -172,9 +186,10 @@
       "source_file": "package.json",
       "source_location": "L16",
       "_origin": "ast",
+      "id": "package_dependencies_lenis",
       "community": 4,
-      "norm_label": "lenis",
-      "id": "package_dependencies_lenis"
+      "community_name": "Animation Dependencies",
+      "norm_label": "lenis"
     },
     {
       "label": "splitting",
@@ -182,9 +197,10 @@
       "source_file": "package.json",
       "source_location": "L17",
       "_origin": "ast",
+      "id": "package_dependencies_splitting",
       "community": 4,
-      "norm_label": "splitting",
-      "id": "package_dependencies_splitting"
+      "community_name": "Animation Dependencies",
+      "norm_label": "splitting"
     },
     {
       "label": "swiper",
@@ -192,9 +208,230 @@
       "source_file": "package.json",
       "source_location": "L18",
       "_origin": "ast",
+      "id": "package_dependencies_swiper",
       "community": 4,
-      "norm_label": "swiper",
-      "id": "package_dependencies_swiper"
+      "community_name": "Animation Dependencies",
+      "norm_label": "swiper"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_main",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "main.js"
+    },
+    {
+      "label": "pad()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_main_pad",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "pad()"
+    },
+    {
+      "label": "liveCountdown()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_main_livecountdown",
+      "community": 7,
+      "community_name": "Main JS Runtime",
+      "norm_label": "livecountdown()"
+    },
+    {
+      "label": "COMPETITIONS",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "src_main_competitions",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "competitions"
+    },
+    {
+      "label": "QUESTIONS",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "src_main_questions",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "questions"
+    },
+    {
+      "label": "TICKET_OPTIONS",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "src_main_ticket_options",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "ticket_options"
+    },
+    {
+      "label": "gbp()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L144",
+      "_origin": "ast",
+      "id": "src_main_gbp",
+      "community": 7,
+      "community_name": "Main JS Runtime",
+      "norm_label": "gbp()"
+    },
+    {
+      "label": "compView",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "src_main_compview",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "compview"
+    },
+    {
+      "label": "viewTimers",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L148",
+      "_origin": "ast",
+      "id": "src_main_viewtimers",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "viewtimers"
+    },
+    {
+      "label": "clearViewTimers()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "src_main_clearviewtimers",
+      "community": 5,
+      "community_name": "Main JS Runtime",
+      "norm_label": "clearviewtimers()"
+    },
+    {
+      "label": "renderCompetition()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L154",
+      "_origin": "ast",
+      "id": "src_main_rendercompetition",
+      "community": 7,
+      "community_name": "Main JS Runtime",
+      "norm_label": "rendercompetition()"
+    },
+    {
+      "label": "showView()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L295",
+      "_origin": "ast",
+      "id": "src_main_showview",
+      "community": 5,
+      "community_name": "Main JS Runtime",
+      "norm_label": "showview()"
+    },
+    {
+      "label": "hideView()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L307",
+      "_origin": "ast",
+      "id": "src_main_hideview",
+      "community": 5,
+      "community_name": "Main JS Runtime",
+      "norm_label": "hideview()"
+    },
+    {
+      "label": "openCompetition()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L315",
+      "_origin": "ast",
+      "id": "src_main_opencompetition",
+      "community": 5,
+      "community_name": "Main JS Runtime",
+      "norm_label": "opencompetition()"
+    },
+    {
+      "label": "closeCompetition()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L320",
+      "_origin": "ast",
+      "id": "src_main_closecompetition",
+      "community": 5,
+      "community_name": "Main JS Runtime",
+      "norm_label": "closecompetition()"
+    },
+    {
+      "label": "io",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L356",
+      "_origin": "ast",
+      "id": "src_main_io",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "io"
+    },
+    {
+      "label": "countUp()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L372",
+      "_origin": "ast",
+      "id": "src_main_countup",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "countup()"
+    },
+    {
+      "label": "nav",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L401",
+      "_origin": "ast",
+      "id": "src_main_nav",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "nav"
+    },
+    {
+      "label": "onScroll()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L402",
+      "_origin": "ast",
+      "id": "src_main_onscroll",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "onscroll()"
+    },
+    {
+      "label": "deep",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L463",
+      "_origin": "ast",
+      "id": "src_main_deep",
+      "community": 0,
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "deep"
     },
     {
       "label": "Project README",
@@ -205,229 +442,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "readme_readme_overview",
       "community": 6,
-      "norm_label": "project readme",
-      "id": "readme_readme_overview"
-    },
-    {
-      "label": "main.js",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_main",
-      "community": 0,
-      "norm_label": "main.js"
-    },
-    {
-      "label": "revealEls",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L51",
-      "_origin": "ast",
-      "id": "src_main_revealels",
-      "community": 0,
-      "norm_label": "revealels"
-    },
-    {
-      "label": "formatNumber()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L78",
-      "_origin": "ast",
-      "id": "src_main_formatnumber",
-      "community": 0,
-      "norm_label": "formatnumber()"
-    },
-    {
-      "label": "pad()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L108",
-      "_origin": "ast",
-      "id": "src_main_pad",
-      "community": 0,
-      "norm_label": "pad()"
-    },
-    {
-      "label": "liveCountdown()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L109",
-      "_origin": "ast",
-      "id": "src_main_livecountdown",
-      "community": 5,
-      "norm_label": "livecountdown()"
-    },
-    {
-      "label": "winnersSwiper",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L134",
-      "_origin": "ast",
-      "id": "src_main_winnersswiper",
-      "community": 0,
-      "norm_label": "winnersswiper"
-    },
-    {
-      "label": "winNext",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L150",
-      "_origin": "ast",
-      "id": "src_main_winnext",
-      "community": 0,
-      "norm_label": "winnext"
-    },
-    {
-      "label": "winPrev",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L151",
-      "_origin": "ast",
-      "id": "src_main_winprev",
-      "community": 0,
-      "norm_label": "winprev"
-    },
-    {
-      "label": "nav",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L158",
-      "_origin": "ast",
-      "id": "src_main_nav",
-      "community": 0,
-      "norm_label": "nav"
-    },
-    {
-      "label": "COMPETITIONS",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L169",
-      "_origin": "ast",
-      "id": "src_main_competitions",
-      "community": 0,
-      "norm_label": "competitions"
-    },
-    {
-      "label": "QUESTIONS",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L305",
-      "_origin": "ast",
-      "id": "src_main_questions",
-      "community": 0,
-      "norm_label": "questions"
-    },
-    {
-      "label": "TICKET_OPTIONS",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L317",
-      "_origin": "ast",
-      "id": "src_main_ticket_options",
-      "community": 0,
-      "norm_label": "ticket_options"
-    },
-    {
-      "label": "gbp()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L318",
-      "_origin": "ast",
-      "id": "src_main_gbp",
-      "community": 5,
-      "norm_label": "gbp()"
-    },
-    {
-      "label": "compView",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L321",
-      "_origin": "ast",
-      "id": "src_main_compview",
-      "community": 0,
-      "norm_label": "compview"
-    },
-    {
-      "label": "viewTimers",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L323",
-      "_origin": "ast",
-      "id": "src_main_viewtimers",
-      "community": 0,
-      "norm_label": "viewtimers"
-    },
-    {
-      "label": "clearViewTimers()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L325",
-      "_origin": "ast",
-      "id": "src_main_clearviewtimers",
-      "community": 7,
-      "norm_label": "clearviewtimers()"
-    },
-    {
-      "label": "renderCompetition()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L330",
-      "_origin": "ast",
-      "id": "src_main_rendercompetition",
-      "community": 5,
-      "norm_label": "rendercompetition()"
-    },
-    {
-      "label": "showView()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L478",
-      "_origin": "ast",
-      "id": "src_main_showview",
-      "community": 5,
-      "norm_label": "showview()"
-    },
-    {
-      "label": "hideView()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L490",
-      "_origin": "ast",
-      "id": "src_main_hideview",
-      "community": 7,
-      "norm_label": "hideview()"
-    },
-    {
-      "label": "openCompetition()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L498",
-      "_origin": "ast",
-      "id": "src_main_opencompetition",
-      "community": 5,
-      "norm_label": "opencompetition()"
-    },
-    {
-      "label": "closeCompetition()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L503",
-      "_origin": "ast",
-      "id": "src_main_closecompetition",
-      "community": 7,
-      "norm_label": "closecompetition()"
-    },
-    {
-      "label": "deep",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L532",
-      "_origin": "ast",
-      "id": "src_main_deep",
-      "community": 0,
-      "norm_label": "deep"
+      "community_name": "Skill Entry & Detail Page",
+      "norm_label": "project readme"
     },
     {
       "label": "Sticky Navigation",
@@ -440,6 +458,7 @@
       "contributor": null,
       "id": "in4awin_index_nav",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "sticky navigation"
     },
     {
@@ -453,6 +472,7 @@
       "contributor": null,
       "id": "in4awin_index_hero",
       "community": 3,
+      "community_name": "Hero & Live Animations",
       "norm_label": "hero section"
     },
     {
@@ -466,6 +486,7 @@
       "contributor": null,
       "id": "in4awin_index_featured_comp",
       "community": 3,
+      "community_name": "Hero & Live Animations",
       "norm_label": "featured competition (porsche 911 gt3 rs)"
     },
     {
@@ -479,6 +500,7 @@
       "contributor": null,
       "id": "in4awin_index_competitions_grid",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "live competitions grid"
     },
     {
@@ -492,6 +514,7 @@
       "contributor": null,
       "id": "in4awin_index_competition_card",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "competition card (clickable)"
     },
     {
@@ -505,6 +528,7 @@
       "contributor": null,
       "id": "in4awin_index_comp_detail_page",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "competition detail page"
     },
     {
@@ -518,6 +542,7 @@
       "contributor": null,
       "id": "in4awin_index_ticket_selector",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "ticket quantity selector"
     },
     {
@@ -531,6 +556,7 @@
       "contributor": null,
       "id": "in4awin_index_skill_question",
       "community": 6,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "skill question gate"
     },
     {
@@ -544,6 +570,7 @@
       "contributor": null,
       "id": "in4awin_index_game_of_skill",
       "community": 6,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "game of skill mechanic"
     },
     {
@@ -557,6 +584,7 @@
       "contributor": null,
       "id": "in4awin_index_free_postal_entry",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "free postal entry route"
     },
     {
@@ -570,6 +598,7 @@
       "contributor": null,
       "id": "in4awin_index_how_it_works",
       "community": 6,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "how it works stepper"
     },
     {
@@ -583,6 +612,7 @@
       "contributor": null,
       "id": "in4awin_index_winners",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "winners carousel (continuous loop)"
     },
     {
@@ -596,6 +626,7 @@
       "contributor": null,
       "id": "in4awin_index_stats",
       "community": 3,
+      "community_name": "Hero & Live Animations",
       "norm_label": "stats band"
     },
     {
@@ -609,6 +640,7 @@
       "contributor": null,
       "id": "in4awin_index_cta",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "closing cta"
     },
     {
@@ -622,6 +654,7 @@
       "contributor": null,
       "id": "in4awin_index_footer",
       "community": 8,
+      "community_name": "Page Sections",
       "norm_label": "footer"
     },
     {
@@ -635,6 +668,7 @@
       "contributor": null,
       "id": "in4awin_index_countdown",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "countdown timer"
     },
     {
@@ -648,6 +682,7 @@
       "contributor": null,
       "id": "in4awin_index_progress",
       "community": 2,
+      "community_name": "Skill Entry & Detail Page",
       "norm_label": "ticket progress bar"
     },
     {
@@ -661,6 +696,7 @@
       "contributor": null,
       "id": "in4awin_index_splitting_heading",
       "community": 3,
+      "community_name": "Hero & Live Animations",
       "norm_label": "splitting.js hero heading"
     },
     {
@@ -674,7 +710,22 @@
       "contributor": null,
       "id": "in4awin_index_count_up",
       "community": 3,
+      "community_name": "Hero & Live Animations",
       "norm_label": "animated count-up stats"
+    },
+    {
+      "label": "Film Grain Texture Overlay",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".grain",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_grain",
+      "community": 3,
+      "community_name": "Hero & Live Animations",
+      "norm_label": "film grain texture overlay"
     }
   ],
   "links": [
@@ -684,9 +735,9 @@
       "source_file": "package.json",
       "source_location": "L14",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_dependencies"
+      "target": "package_dependencies",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -694,9 +745,9 @@
       "source_file": "package.json",
       "source_location": "L4",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_description"
+      "target": "package_description",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -704,9 +755,9 @@
       "source_file": "package.json",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_devdependencies"
+      "target": "package_devdependencies",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -714,9 +765,9 @@
       "source_file": "package.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_name"
+      "target": "package_name",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -724,9 +775,9 @@
       "source_file": "package.json",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_scripts"
+      "target": "package_scripts",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -734,9 +785,9 @@
       "source_file": "package.json",
       "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_type"
+      "target": "package_type",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -744,9 +795,9 @@
       "source_file": "package.json",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package",
-      "target": "package_version"
+      "target": "package_version",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -754,9 +805,9 @@
       "source_file": "package.json",
       "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_build"
+      "target": "package_scripts_build",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -764,9 +815,9 @@
       "source_file": "package.json",
       "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_dev"
+      "target": "package_scripts_dev",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -774,9 +825,9 @@
       "source_file": "package.json",
       "source_location": "L8",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_preview"
+      "target": "package_scripts_preview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -784,9 +835,9 @@
       "source_file": "package.json",
       "source_location": "L12",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vite"
+      "target": "package_devdependencies_vite",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -794,9 +845,9 @@
       "source_file": "package.json",
       "source_location": "L15",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_gsap"
+      "target": "package_dependencies_gsap",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -804,9 +855,9 @@
       "source_file": "package.json",
       "source_location": "L16",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_lenis"
+      "target": "package_dependencies_lenis",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -814,9 +865,9 @@
       "source_file": "package.json",
       "source_location": "L17",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_splitting"
+      "target": "package_dependencies_splitting",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -824,25 +875,15 @@
       "source_file": "package.json",
       "source_location": "L18",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_swiper"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_readme_overview",
-      "target": "in4awin_index_game_of_skill"
+      "target": "package_dependencies_swiper",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L325",
+      "source_location": "L149",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_clearviewtimers",
@@ -852,7 +893,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L503",
+      "source_location": "L320",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_closecompetition",
@@ -862,7 +903,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L169",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_competitions",
@@ -872,7 +913,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L321",
+      "source_location": "L146",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_compview",
@@ -882,7 +923,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L532",
+      "source_location": "L372",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_countup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L463",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_deep",
@@ -892,17 +943,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L78",
-      "weight": 1.0,
-      "source": "src_main",
-      "target": "src_main_formatnumber",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.js",
-      "source_location": "L318",
+      "source_location": "L144",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_gbp",
@@ -912,7 +953,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L490",
+      "source_location": "L307",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_hideview",
@@ -922,7 +963,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L109",
+      "source_location": "L356",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_io",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_livecountdown",
@@ -932,7 +983,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L158",
+      "source_location": "L401",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_nav",
@@ -942,7 +993,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L498",
+      "source_location": "L402",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_onscroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L315",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_opencompetition",
@@ -952,7 +1013,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L108",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_pad",
@@ -962,7 +1023,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L305",
+      "source_location": "L131",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_questions",
@@ -972,7 +1033,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L330",
+      "source_location": "L154",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_rendercompetition",
@@ -982,17 +1043,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "src_main",
-      "target": "src_main_revealels",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.js",
-      "source_location": "L478",
+      "source_location": "L295",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_showview",
@@ -1002,7 +1053,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L317",
+      "source_location": "L143",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_ticket_options",
@@ -1012,40 +1063,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L323",
+      "source_location": "L148",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_viewtimers",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.js",
-      "source_location": "L134",
-      "weight": 1.0,
-      "source": "src_main",
-      "target": "src_main_winnersswiper",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.js",
-      "source_location": "L150",
-      "weight": 1.0,
-      "source": "src_main",
-      "target": "src_main_winnext",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.js",
-      "source_location": "L151",
-      "weight": 1.0,
-      "source": "src_main",
-      "target": "src_main_winprev",
       "confidence_score": 1.0
     },
     {
@@ -1053,7 +1074,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L420",
+      "source_location": "L235",
       "weight": 1.0,
       "source": "src_main_rendercompetition",
       "target": "src_main_livecountdown",
@@ -1064,7 +1085,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L345",
+      "source_location": "L169",
       "weight": 1.0,
       "source": "src_main_rendercompetition",
       "target": "src_main_gbp",
@@ -1075,7 +1096,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L491",
+      "source_location": "L308",
       "weight": 1.0,
       "source": "src_main_hideview",
       "target": "src_main_clearviewtimers",
@@ -1086,7 +1107,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L480",
+      "source_location": "L297",
       "weight": 1.0,
       "source": "src_main_showview",
       "target": "src_main_clearviewtimers",
@@ -1097,7 +1118,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L481",
+      "source_location": "L298",
       "weight": 1.0,
       "source": "src_main_showview",
       "target": "src_main_rendercompetition",
@@ -1108,7 +1129,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L500",
+      "source_location": "L317",
       "weight": 1.0,
       "source": "src_main_opencompetition",
       "target": "src_main_showview",
@@ -1119,11 +1140,21 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L504",
+      "source_location": "L321",
       "weight": 1.0,
       "source": "src_main_closecompetition",
       "target": "src_main_hideview",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_readme_overview",
+      "target": "in4awin_index_game_of_skill"
     },
     {
       "relation": "references",
@@ -1154,6 +1185,16 @@
       "weight": 1.0,
       "source": "in4awin_index_hero",
       "target": "in4awin_index_featured_comp"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_hero",
+      "target": "in4awin_index_grain"
     },
     {
       "relation": "references",
@@ -1324,7 +1365,8 @@
         "in4awin_index_splitting_heading",
         "in4awin_index_progress",
         "in4awin_index_count_up",
-        "in4awin_index_countdown"
+        "in4awin_index_countdown",
+        "in4awin_index_grain"
       ],
       "relation": "participate_in",
       "confidence": "INFERRED",
@@ -1348,5 +1390,5 @@
       "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
     }
   ],
-  "built_at_commit": "a945a68b0a92f360f29fc7973e6b324206a5c6db"
+  "built_at_commit": "03bb44c64b1d4e50a49c6eb38c19e2ec9f585d85"
 }

@@ -7,104 +7,9 @@ import { Autoplay } from 'swiper/modules'
 import 'splitting/dist/splitting.css'
 import 'swiper/css'
 
-gsap.registerPlugin(ScrollTrigger)
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-/* -------------------------------------------------
-   Lenis smooth scroll (hoisted for the detail page)
-   ------------------------------------------------- */
 let lenis = null
-if (!reduceMotion) {
-  lenis = new Lenis({ lerp: 0.1 })
-  lenis.on('scroll', ScrollTrigger.update)
-  gsap.ticker.add((time) => lenis.raf(time * 1000))
-  gsap.ticker.lagSmoothing(0)
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href')
-      if (id.length > 1 && !id.startsWith('#play')) {
-        const target = document.querySelector(id)
-        if (target) {
-          e.preventDefault()
-          lenis.scrollTo(target, { offset: -80 })
-        }
-      }
-    })
-  })
-}
 
-/* -------------------------------------------------
-   Hero heading + reveals + counters + meters
-   ------------------------------------------------- */
-Splitting()
-if (!reduceMotion) {
-  gsap.from('.hero__title .char', {
-    yPercent: 120,
-    opacity: 0,
-    stagger: 0.018,
-    duration: 0.8,
-    ease: 'power3.out',
-    delay: 0.15,
-  })
-}
-
-const revealEls = document.querySelectorAll('[data-reveal]')
-if (reduceMotion) revealEls.forEach((el) => el.classList.add('is-in'))
-else
-  revealEls.forEach((el) =>
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 90%',
-      once: true,
-      onEnter: () => el.classList.add('is-in'),
-    })
-  )
-
-document.querySelectorAll('.progress').forEach((p) => {
-  const pct = Math.max(0, Math.min(100, Number(p.dataset.progress) || 0))
-  const fill = p.querySelector('.progress__fill')
-  if (reduceMotion) {
-    fill.style.width = pct + '%'
-    return
-  }
-  ScrollTrigger.create({
-    trigger: p,
-    start: 'top 94%',
-    once: true,
-    onEnter: () => (fill.style.width = pct + '%'),
-  })
-})
-
-function formatNumber(n, prefix = '', suffix = '') {
-  return prefix + Math.round(n).toLocaleString('en-GB') + suffix
-}
-document.querySelectorAll('.js-count').forEach((el) => {
-  const to = Number(el.dataset.to) || 0
-  const prefix = el.dataset.prefix || ''
-  const suffix = el.dataset.suffix || ''
-  if (reduceMotion) {
-    el.textContent = formatNumber(to, prefix, suffix)
-    return
-  }
-  ScrollTrigger.create({
-    trigger: el,
-    start: 'top 96%',
-    once: true,
-    onEnter: () => {
-      const obj = { v: 0 }
-      gsap.to(obj, {
-        v: to,
-        duration: 1.6,
-        ease: 'power2.out',
-        onUpdate: () => (el.textContent = formatNumber(obj.v, prefix, suffix)),
-      })
-    },
-  })
-})
-
-/* -------------------------------------------------
-   Countdown helper (used on the page and detail view)
-   ------------------------------------------------- */
 const pad = (n) => String(n).padStart(2, '0')
 function liveCountdown(el, endTs) {
   const hEl = el.querySelector('[data-cd="h"]')
@@ -124,60 +29,17 @@ function liveCountdown(el, endTs) {
   tick()
   return setInterval(tick, 1000)
 }
-document.querySelectorAll('[data-countdown-hours]').forEach((el) => {
-  liveCountdown(el, Date.now() + (Number(el.dataset.countdownHours) || 0) * 3.6e6)
-})
 
-/* -------------------------------------------------
-   Winners carousel - continuous loop
-   ------------------------------------------------- */
-const winnersSwiper = new Swiper('.winners__swiper', {
-  modules: [Autoplay],
-  loop: true,
-  loopAdditionalSlides: 3,
-  slidesPerView: 1.15,
-  spaceBetween: 16,
-  grabCursor: true,
-  speed: reduceMotion ? 500 : 4200,
-  autoplay: reduceMotion
-    ? false
-    : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
-  breakpoints: {
-    640: { slidesPerView: 2.2, spaceBetween: 20 },
-    1024: { slidesPerView: 3.4, spaceBetween: 22 },
-  },
-})
-const winNext = document.getElementById('winNext')
-const winPrev = document.getElementById('winPrev')
-if (winNext) winNext.addEventListener('click', () => winnersSwiper.slideNext(600))
-if (winPrev) winPrev.addEventListener('click', () => winnersSwiper.slidePrev(600))
-
-/* -------------------------------------------------
-   Nav background on scroll
-   ------------------------------------------------- */
-const nav = document.getElementById('nav')
-ScrollTrigger.create({
-  start: 'top -40',
-  end: 99999,
-  onUpdate: (self) => nav.classList.toggle('is-stuck', self.scroll() > 40),
-})
-
-/* =================================================
-   COMPETITION DETAIL PAGE + SKILL ENTRY
-   ================================================= */
+/* =================================================================
+   1. COMPETITION PAGES + SKILL ENTRY  (critical path, bound first)
+   ================================================================= */
 const WM = 'https://commons.wikimedia.org/wiki/Special:FilePath/'
 const COMPETITIONS = {
   porsche: {
-    name: 'Porsche 911 GT3 RS + £10,000 cash',
-    category: 'Cars',
+    name: 'Porsche 911 GT3 RS + £10,000 cash', category: 'Cars',
     image: WM + 'Porsche%20911%20GT3%20RS%20%282022%29%201X7A7164.jpg?width=1100',
-    alt: 'Porsche 911 GT3 RS sports car',
-    value: '£92,500',
-    cashAlt: '£82,000',
-    price: 2.49,
-    sold: 8842,
-    total: 12500,
-    hours: 46,
+    alt: 'Porsche 911 GT3 RS sports car', value: '£92,500', cashAlt: '£82,000',
+    price: 2.49, sold: 8842, total: 12500, hours: 46,
     details: [
       '2022 Porsche 911 GT3 RS finished in Racing White',
       '4.0L naturally aspirated flat-six, 525 PS',
@@ -188,16 +50,10 @@ const COMPETITIONS = {
     ],
   },
   rolex: {
-    name: 'Rolex Submariner Date',
-    category: 'Luxury',
+    name: 'Rolex Submariner Date', category: 'Luxury',
     image: WM + 'Rolex-Submariner.jpg?width=1100',
-    alt: 'Rolex Submariner watch',
-    value: '£13,200',
-    cashAlt: '£11,000',
-    price: 0.99,
-    sold: 5210,
-    total: 9000,
-    hours: 18,
+    alt: 'Rolex Submariner watch', value: '£13,200', cashAlt: '£11,000',
+    price: 0.99, sold: 5210, total: 9000, hours: 18,
     details: [
       'Rolex Submariner Date, 41mm Oystersteel',
       'Brand new, full box and papers',
@@ -207,16 +63,10 @@ const COMPETITIONS = {
     ],
   },
   cash25k: {
-    name: '£25,000 Tax-Free Cash',
-    category: 'Cash',
+    name: '£25,000 Tax-Free Cash', category: 'Cash',
     image: WM + 'White-note-50-pounds.jpg?width=1100',
-    alt: 'British banknote, cash prize',
-    value: '£25,000',
-    cashAlt: null,
-    price: 1.2,
-    sold: 16600,
-    total: 20000,
-    hours: 9,
+    alt: 'British banknote, cash prize', value: '£25,000', cashAlt: null,
+    price: 1.2, sold: 16600, total: 20000, hours: 9,
     details: [
       '£25,000 paid directly to your bank',
       'Completely tax-free, no deductions',
@@ -225,16 +75,10 @@ const COMPETITIONS = {
     ],
   },
   maldives: {
-    name: 'Maldives Getaway for Two',
-    category: 'Travel',
+    name: 'Maldives Getaway for Two', category: 'Travel',
     image: WM + 'MaldivesBungalows.jpg?width=1100',
-    alt: 'Overwater villas in the Maldives',
-    value: '£9,800',
-    cashAlt: '£8,000',
-    price: 1.49,
-    sold: 2380,
-    total: 7000,
-    hours: 63,
+    alt: 'Overwater villas in the Maldives', value: '£9,800', cashAlt: '£8,000',
+    price: 1.49, sold: 2380, total: 7000, hours: 63,
     details: [
       '7 nights in an overwater villa',
       'Return flights for two included',
@@ -245,16 +89,10 @@ const COMPETITIONS = {
     ],
   },
   apple: {
-    name: 'Ultimate Apple Tech Bundle',
-    category: 'Tech',
+    name: 'Ultimate Apple Tech Bundle', category: 'Tech',
     image: WM + 'Apple%20MacBook%20Pro%2016%22%20M2%20Max.jpg?width=1100',
-    alt: 'Apple MacBook Pro 16-inch',
-    value: '£6,400',
-    cashAlt: '£5,000',
-    price: 0.79,
-    sold: 7360,
-    total: 8000,
-    hours: 5,
+    alt: 'Apple MacBook Pro 16-inch', value: '£6,400', cashAlt: '£5,000',
+    price: 0.79, sold: 7360, total: 8000, hours: 5,
     details: [
       '16-inch MacBook Pro (M-series)',
       'iPhone 15 Pro Max',
@@ -264,16 +102,10 @@ const COMPETITIONS = {
     ],
   },
   defender: {
-    name: 'Land Rover Defender 90',
-    category: 'Cars',
+    name: 'Land Rover Defender 90', category: 'Cars',
     image: WM + 'Land%20Rover%20Defender%2090%20%28L663%29%20IMG%209441.jpg?width=1100',
-    alt: 'Land Rover Defender 90',
-    value: '£68,000',
-    cashAlt: '£58,000',
-    price: 2.99,
-    sold: 9870,
-    total: 21000,
-    hours: 40,
+    alt: 'Land Rover Defender 90', value: '£68,000', cashAlt: '£58,000',
+    price: 2.99, sold: 9870, total: 21000, hours: 40,
     details: [
       'Brand new Land Rover Defender 90',
       'Permanent four-wheel drive',
@@ -283,16 +115,10 @@ const COMPETITIONS = {
     ],
   },
   vouchers: {
-    name: '£2,000 Voucher Vault',
-    category: 'Vouchers',
+    name: '£2,000 Voucher Vault', category: 'Vouchers',
     image: WM + 'Gift%20card%20assortment.jpg?width=1100',
-    alt: 'Assortment of gift cards and vouchers',
-    value: '£2,000',
-    cashAlt: null,
-    price: 0.5,
-    sold: 6620,
-    total: 10000,
-    hours: 27,
+    alt: 'Assortment of gift cards and vouchers', value: '£2,000', cashAlt: null,
+    price: 0.5, sold: 6620, total: 10000, hours: 27,
     details: [
       '£2,000 in gift cards of your choice',
       'Amazon, John Lewis, Selfridges, M&S and more',
@@ -315,14 +141,12 @@ const QUESTIONS = [
   { q: 'How many minutes are there in two and a half hours?', options: ['120', '150', '160', '90'], answer: 1 },
 ]
 const TICKET_OPTIONS = [1, 5, 10, 25]
-const gbp = (n) =>
-  '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+const gbp = (n) => '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 const compView = document.getElementById('compView')
 let lastFocused = null
 let viewTimers = []
-
-function clearViewTimers() {
+const clearViewTimers = () => {
   viewTimers.forEach(clearInterval)
   viewTimers = []
 }
@@ -342,7 +166,7 @@ function renderCompetition(id) {
       <div class="compview__media">
         <img src="${c.image}" alt="${c.alt}" />
         <div class="compview__media-foot">
-          <span>${gbp(c.price)} per ticket</span>
+          <span><b>${gbp(c.price)}</b> per ticket</span>
           <span class="compview__cash">${c.cashAlt ? 'Cash alternative ' + c.cashAlt : 'Paid as cash'}</span>
         </div>
       </div>
@@ -356,13 +180,15 @@ function renderCompetition(id) {
             <div class="compview__metalabel">Closes in</div>
             <div class="countdown" data-cv-countdown>
               <div class="countdown__unit"><b data-cd="h">00</b><span>hrs</span></div>
+              <span class="countdown__sep">:</span>
               <div class="countdown__unit"><b data-cd="m">00</b><span>min</span></div>
+              <span class="countdown__sep">:</span>
               <div class="countdown__unit"><b data-cd="s">00</b><span>sec</span></div>
             </div>
           </div>
-          <div>
+          <div style="flex:1;min-width:200px">
             <div class="compview__metalabel">Tickets remaining</div>
-            <div class="progress" style="margin-top:.2rem;max-width:240px">
+            <div class="progress" style="margin-top:.3rem">
               <div class="progress__track"><span class="progress__fill" style="width:${pct}%"></span></div>
               <div class="progress__labels"><b>${left} left</b><span>${pct}% sold</span></div>
             </div>
@@ -380,42 +206,31 @@ function renderCompetition(id) {
             <span class="entry__step">Game of skill</span>
           </div>
 
-          <div class="entry__label">1. Choose your tickets</div>
+          <div class="entry__label">1 / Choose your tickets</div>
           <div class="tickets" id="ticketRow">
-            ${TICKET_OPTIONS.map(
-              (n, i) =>
-                `<button type="button" class="tickets__opt${i === 0 ? ' is-active' : ''}" data-qty="${n}">${n}</button>`
-            ).join('')}
+            ${TICKET_OPTIONS.map((n, i) => `<button type="button" class="tickets__opt${i === 0 ? ' is-active' : ''}" data-qty="${n}">${n}</button>`).join('')}
           </div>
           <div class="entry__total">
             <span>Total for <b id="qtyLabel">1</b> ticket(s)</span>
             <b id="totalCost">${gbp(c.price)}</b>
           </div>
 
-          <div class="entry__label">2. Answer to qualify</div>
+          <div class="entry__label">2 / Answer to qualify</div>
           <div class="skillq">
             <span class="skillq__tag">Skill question</span>
             <p class="skillq__q">${q.q}</p>
             <div class="skillq__options" id="skillOptions" role="radiogroup" aria-label="Answer options">
-              ${q.options
-                .map(
-                  (o, i) =>
-                    `<button type="button" class="skillq__opt" role="radio" aria-checked="false" data-i="${i}">${o}</button>`
-                )
-                .join('')}
+              ${q.options.map((o, i) => `<button type="button" class="skillq__opt" role="radio" aria-checked="false" data-i="${i}">${o}</button>`).join('')}
             </div>
           </div>
 
           <p class="entry__feedback" id="entryFeedback" role="status" aria-live="polite"></p>
-          <button class="btn btn--primary btn--lg entry__confirm" id="entryConfirm" type="button">
-            Confirm entry
-          </button>
+          <button class="btn btn--accent btn--lg entry__confirm" id="entryConfirm" type="button">Confirm entry</button>
           <p class="entry__free">Prefer not to pay? A free postal entry route is always available.</p>
         </div>
       </div>
     </div>`
 
-  // ---- wire interactions ----
   const cd = compView.querySelector('[data-cv-countdown]')
   viewTimers.push(liveCountdown(cd, Date.now() + c.hours * 3.6e6))
 
@@ -460,10 +275,12 @@ function renderCompetition(id) {
         <div class="entry__done-icon">&#10003;</div>
         <h3>You're entered. Good luck!</h3>
         <p>${qty} ticket${qty > 1 ? 's' : ''} into <b>${c.name}</b> for ${gbp(c.price * qty)}.</p>
-        <p style="margin-top:.5rem">The draw is streamed live when the timer hits zero. We'll email your unique ticket numbers shortly.</p>
-        <button class="btn btn--ghost btn--lg" type="button" id="entryBackBtn" style="margin-top:1.2rem">Back to competitions</button>`
+        <p style="margin-top:.6rem">The draw is streamed live when the timer hits zero. We'll email your unique ticket numbers shortly.</p>
+        <button class="btn btn--ghost btn--lg" type="button" id="entryBackBtn" style="margin-top:1.3rem">Back to competitions</button>`
       compView.querySelector('#entryBackBtn').addEventListener('click', closeCompetition)
-      if (!reduceMotion) gsap.from(panel, { scale: 0.98, duration: 0.4, ease: 'back.out(2)' })
+      try {
+        if (!reduceMotion) gsap.from(panel, { y: 10, opacity: 0, duration: 0.4, ease: 'power2.out' })
+      } catch (e) { /* animation is optional */ }
     } else {
       opts[selected].classList.add('is-wrong')
       feedback.textContent = 'Not quite. A fresh question is loading, try again.'
@@ -482,7 +299,7 @@ function showView(id) {
   compView.classList.add('is-open')
   compView.setAttribute('aria-hidden', 'false')
   document.body.classList.add('view-open')
-  if (lenis) lenis.stop()
+  try { if (lenis) lenis.stop() } catch (e) {}
   compView.scrollTop = 0
   const back = compView.querySelector('#compBack')
   if (back) back.focus()
@@ -492,7 +309,7 @@ function hideView() {
   compView.classList.remove('is-open')
   compView.setAttribute('aria-hidden', 'true')
   document.body.classList.remove('view-open')
-  if (lenis) lenis.start()
+  try { if (lenis) lenis.start() } catch (e) {}
   if (lastFocused && lastFocused.focus) lastFocused.focus()
 }
 function openCompetition(id) {
@@ -502,32 +319,146 @@ function openCompetition(id) {
 }
 function closeCompetition() {
   hideView()
-  if (location.hash.startsWith('#play-'))
-    history.pushState({}, '', location.pathname + location.search)
+  if (location.hash.startsWith('#play-')) history.pushState({}, '', location.pathname + location.search)
 }
 
-// Open from any element carrying data-comp
-document.querySelectorAll('[data-comp]').forEach((el) => {
-  el.addEventListener('click', () => openCompetition(el.dataset.comp))
-  if (el.getAttribute('role') === 'link') {
-    el.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault()
-        openCompetition(el.dataset.comp)
-      }
-    })
+/* Single delegated handler: any click on (or inside) a [data-comp] opens it. */
+document.addEventListener('click', (e) => {
+  const trigger = e.target.closest('[data-comp]')
+  if (trigger && COMPETITIONS[trigger.dataset.comp]) {
+    e.preventDefault()
+    openCompetition(trigger.dataset.comp)
   }
 })
-
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && compView.classList.contains('is-open')) closeCompetition()
+  if (e.key === 'Escape' && compView.classList.contains('is-open')) {
+    closeCompetition()
+    return
+  }
+  if (e.key === 'Enter' || e.key === ' ') {
+    const t = e.target.closest('[data-comp][role="link"]')
+    if (t && COMPETITIONS[t.dataset.comp]) {
+      e.preventDefault()
+      openCompetition(t.dataset.comp)
+    }
+  }
 })
-
-// Browser back/forward + deep links (#play-<id>)
 window.addEventListener('popstate', () => {
   const m = location.hash.match(/^#play-(.+)/)
   if (m && COMPETITIONS[m[1]]) showView(m[1])
   else hideView()
 })
+
+/* =================================================================
+   2. Visual enhancements (never block the critical path above)
+   ================================================================= */
+// Reveals + counters via native IntersectionObserver (robust, no GSAP dep)
+const io = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return
+      const el = entry.target
+      el.classList.add('is-in')
+      if (el.classList.contains('progress')) {
+        const fill = el.querySelector('.progress__fill')
+        if (fill) fill.style.width = Math.min(100, Number(el.dataset.progress) || 0) + '%'
+      }
+      if (el.classList.contains('js-count')) countUp(el)
+      obs.unobserve(el)
+    })
+  },
+  { threshold: 0.15 }
+)
+function countUp(el) {
+  const to = Number(el.dataset.to) || 0
+  const prefix = el.dataset.prefix || ''
+  const suffix = el.dataset.suffix || ''
+  const fmt = (n) => prefix + Math.round(n).toLocaleString('en-GB') + suffix
+  if (reduceMotion) { el.textContent = fmt(to); return }
+  const start = performance.now()
+  const dur = 1600
+  function step(now) {
+    const t = Math.min(1, (now - start) / dur)
+    const eased = 1 - Math.pow(1 - t, 3)
+    el.textContent = fmt(to * eased)
+    if (t < 1) requestAnimationFrame(step)
+  }
+  requestAnimationFrame(step)
+}
+document.querySelectorAll('[data-reveal]').forEach((el) => {
+  if (reduceMotion) el.classList.add('is-in')
+  else io.observe(el)
+})
+document.querySelectorAll('.progress[data-progress]').forEach((el) => io.observe(el))
+document.querySelectorAll('.js-count').forEach((el) => io.observe(el))
+
+// Page countdowns
+document.querySelectorAll('[data-countdown-hours]').forEach((el) =>
+  liveCountdown(el, Date.now() + (Number(el.dataset.countdownHours) || 0) * 3.6e6)
+)
+
+// Nav background on scroll (cheap class toggle, passive)
+const nav = document.getElementById('nav')
+const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 40)
+window.addEventListener('scroll', onScroll, { passive: true })
+onScroll()
+
+// Lenis smooth scroll + anchor routing
+try {
+  if (!reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger)
+    lenis = new Lenis({ lerp: 0.1 })
+    lenis.on('scroll', ScrollTrigger.update)
+    gsap.ticker.add((time) => lenis.raf(time * 1000))
+    gsap.ticker.lagSmoothing(0)
+  }
+} catch (e) { lenis = null }
+
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const id = a.getAttribute('href')
+    if (id.length <= 1 || id.startsWith('#play')) return
+    const target = document.querySelector(id)
+    if (!target) return
+    e.preventDefault()
+    if (lenis) lenis.scrollTo(target, { offset: -80 })
+    else target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
+  })
+})
+
+// Hero heading character reveal
+try {
+  Splitting()
+  if (!reduceMotion) {
+    gsap.from('.hero__title .char', {
+      yPercent: 115, opacity: 0, stagger: 0.018, duration: 0.8,
+      ease: 'power3.out', delay: 0.15,
+    })
+  }
+} catch (e) { /* heading stays static */ }
+
+// Winners continuous carousel
+try {
+  const winnersSwiper = new Swiper('.winners__swiper', {
+    modules: [Autoplay],
+    loop: true,
+    loopAdditionalSlides: 3,
+    slidesPerView: 1.2,
+    spaceBetween: 16,
+    grabCursor: true,
+    speed: reduceMotion ? 500 : 4200,
+    autoplay: reduceMotion ? false : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
+    breakpoints: {
+      640: { slidesPerView: 2.4, spaceBetween: 18 },
+      1024: { slidesPerView: 3.6, spaceBetween: 20 },
+    },
+  })
+  const winNext = document.getElementById('winNext')
+  const winPrev = document.getElementById('winPrev')
+  if (winNext) winNext.addEventListener('click', () => winnersSwiper.slideNext(600))
+  if (winPrev) winPrev.addEventListener('click', () => winnersSwiper.slidePrev(600))
+} catch (e) { /* carousel optional */ }
+
+// Deep link (#play-<id>) on first load
 const deep = location.hash.match(/^#play-(.+)/)
 if (deep && COMPETITIONS[deep[1]]) showView(deep[1])
