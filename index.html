@@ -28,14 +28,14 @@
           <a href="#how">How it works</a>
         </nav>
         <div class="nav__actions">
-          <a href="#" class="btn btn--ghost">Sign in</a>
-          <a href="#competitions" class="btn btn--primary" data-magnetic>Enter now</a>
+          <a href="#" class="btn btn--ghost btn--sm">Sign in</a>
+          <a href="#competitions" class="btn btn--primary btn--sm">Enter now</a>
         </div>
       </div>
     </header>
 
     <main id="top">
-      <!-- ===== HERO (asymmetric split) ===== -->
+      <!-- ===== HERO ===== -->
       <section class="hero">
         <div class="hero__bg" aria-hidden="true"></div>
         <div class="hero__grid">
@@ -50,7 +50,7 @@
             </p>
 
             <div class="hero__cta">
-              <a href="#competitions" class="btn btn--primary btn--lg" data-magnetic>
+              <a href="#competitions" class="btn btn--primary btn--lg">
                 Browse competitions
               </a>
               <a href="#how" class="btn btn--ghost btn--lg">See how it works</a>
@@ -65,8 +65,8 @@
             </div>
           </div>
 
-          <!-- Featured prize card -->
-          <aside class="featured" aria-label="Featured competition">
+          <!-- Featured competition (click to open its page) -->
+          <article class="featured" data-comp="porsche" tabindex="0" role="link" aria-label="Open Porsche 911 GT3 RS competition">
             <div class="featured__media">
               <img
                 src="https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20911%20GT3%20RS%20%282022%29%201X7A7164.jpg?width=1000"
@@ -92,33 +92,30 @@
               <div class="featured__foot">
                 <div class="countdown" data-countdown-hours="46" aria-label="Time remaining">
                   <div class="countdown__unit"><b data-cd="h">00</b><span>hrs</span></div>
-                  <div class="countdown__sep">:</div>
                   <div class="countdown__unit"><b data-cd="m">00</b><span>min</span></div>
-                  <div class="countdown__sep">:</div>
                   <div class="countdown__unit"><b data-cd="s">00</b><span>sec</span></div>
                 </div>
-                <a href="#" class="btn btn--primary" data-magnetic data-enter data-prize="Porsche 911 GT3 RS + £10,000 cash">
-                  Enter <span class="featured__price">£2.49</span>
-                </a>
+                <button class="btn btn--primary" data-comp="porsche">
+                  Enter from <span class="featured__price">£2.49</span>
+                </button>
               </div>
             </div>
-          </aside>
+          </article>
         </div>
       </section>
 
-      <!-- ===== LIVE COMPETITIONS (card grid) ===== -->
+      <!-- ===== LIVE COMPETITIONS ===== -->
       <section class="comps" id="competitions">
         <div class="section-head">
           <h2 class="section-title" data-reveal>Live competitions</h2>
           <p class="section-lead" data-reveal>
-            Pick your prize, answer the skill question, watch the draw live. Every
-            winner is real and announced on stream.
+            Tap a competition to see the full prize, the odds and the skill
+            question. Every winner is real and announced on the live draw.
           </p>
         </div>
 
         <div class="comps__grid">
-          <!-- card -->
-          <article class="card" data-reveal>
+          <article class="card" data-comp="rolex" data-reveal tabindex="0" role="link" aria-label="Open Rolex Submariner competition">
             <div class="card__media">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rolex-Submariner.jpg?width=800" alt="Rolex Submariner watch" loading="lazy" />
               <span class="card__ticket">£0.99 / ticket</span>
@@ -135,12 +132,12 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="18">ends in 18h</span>
-                <a href="#" class="btn btn--primary btn--sm" data-magnetic data-enter data-prize="Rolex Submariner Date">Enter</a>
+                <span class="btn btn--primary btn--sm" data-comp="rolex">Enter</span>
               </div>
             </div>
           </article>
 
-          <article class="card" data-reveal>
+          <article class="card" data-comp="cash25k" data-reveal tabindex="0" role="link" aria-label="Open £25,000 cash competition">
             <div class="card__media">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/White-note-50-pounds.jpg?width=800" alt="British banknote, cash prize" loading="lazy" />
               <span class="card__ticket">£1.20 / ticket</span>
@@ -157,12 +154,12 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="9">ends in 9h</span>
-                <a href="#" class="btn btn--primary btn--sm" data-magnetic data-enter data-prize="£25,000 Tax-Free Cash">Enter</a>
+                <span class="btn btn--primary btn--sm" data-comp="cash25k">Enter</span>
               </div>
             </div>
           </article>
 
-          <article class="card" data-reveal>
+          <article class="card" data-comp="maldives" data-reveal tabindex="0" role="link" aria-label="Open Maldives getaway competition">
             <div class="card__media">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/MaldivesBungalows.jpg?width=800" alt="Overwater villas in the Maldives" loading="lazy" />
               <span class="card__ticket">£1.49 / ticket</span>
@@ -179,12 +176,12 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="63">ends in 2d</span>
-                <a href="#" class="btn btn--primary btn--sm" data-magnetic data-enter data-prize="Maldives Getaway for Two">Enter</a>
+                <span class="btn btn--primary btn--sm" data-comp="maldives">Enter</span>
               </div>
             </div>
           </article>
 
-          <article class="card" data-reveal>
+          <article class="card" data-comp="apple" data-reveal tabindex="0" role="link" aria-label="Open Apple tech bundle competition">
             <div class="card__media">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apple%20MacBook%20Pro%2016%22%20M2%20Max.jpg?width=800" alt="Apple MacBook Pro 16-inch" loading="lazy" />
               <span class="card__ticket">£0.79 / ticket</span>
@@ -201,12 +198,12 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="5">ends in 5h</span>
-                <a href="#" class="btn btn--primary btn--sm" data-magnetic data-enter data-prize="Ultimate Apple Tech Bundle">Enter</a>
+                <span class="btn btn--primary btn--sm" data-comp="apple">Enter</span>
               </div>
             </div>
           </article>
 
-          <article class="card" data-reveal>
+          <article class="card" data-comp="defender" data-reveal tabindex="0" role="link" aria-label="Open Land Rover Defender competition">
             <div class="card__media">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Land%20Rover%20Defender%2090%20%28L663%29%20IMG%209441.jpg?width=800" alt="Land Rover Defender 90" loading="lazy" />
               <span class="card__ticket">£2.99 / ticket</span>
@@ -223,12 +220,12 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="40">ends in 40h</span>
-                <a href="#" class="btn btn--primary btn--sm" data-magnetic data-enter data-prize="Land Rover Defender 90">Enter</a>
+                <span class="btn btn--primary btn--sm" data-comp="defender">Enter</span>
               </div>
             </div>
           </article>
 
-          <article class="card" data-reveal>
+          <article class="card" data-comp="vouchers" data-reveal tabindex="0" role="link" aria-label="Open voucher vault competition">
             <div class="card__media">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gift%20card%20assortment.jpg?width=800" alt="Assortment of gift cards and vouchers" loading="lazy" />
               <span class="card__ticket">£0.50 / ticket</span>
@@ -245,14 +242,14 @@
               </div>
               <div class="card__foot">
                 <span class="card__timer" data-countdown-hours="27">ends in 27h</span>
-                <a href="#" class="btn btn--primary btn--sm" data-magnetic data-enter data-prize="£2,000 Voucher Vault">Enter</a>
+                <span class="btn btn--primary btn--sm" data-comp="vouchers">Enter</span>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- ===== HOW IT WORKS (numbered stepper) ===== -->
+      <!-- ===== HOW IT WORKS ===== -->
       <section class="how" id="how">
         <div class="how__intro">
           <h2 class="section-title" data-reveal>A game of skill, in three steps</h2>
@@ -267,16 +264,16 @@
             <span class="step__num">01</span>
             <h3 class="step__title">Pick your prize</h3>
             <p class="step__text">
-              Browse cars, cash and luxury draws. Choose how many tickets you
-              want, from as little as 50p each.
+              Open any competition to see the full prize, the odds and how many
+              tickets are left. Tickets start at 50p each.
             </p>
           </li>
           <li class="step" data-reveal>
             <span class="step__num">02</span>
             <h3 class="step__title">Answer the question</h3>
             <p class="step__text">
-              Solve the skill question to qualify. Get it right and your entry is
-              locked in. That is what makes this a game of skill, not chance.
+              Choose your tickets and solve the skill question to qualify. Get it
+              right and your entry is locked in. That is what makes this skill.
             </p>
           </li>
           <li class="step" data-reveal>
@@ -290,7 +287,7 @@
         </ol>
       </section>
 
-      <!-- ===== WINNERS (continuous carousel) ===== -->
+      <!-- ===== WINNERS ===== -->
       <section class="winners" id="winners">
         <div class="section-head section-head--center">
           <span class="pill pill--quiet" data-reveal>Real people. Real prizes.</span>
@@ -386,7 +383,7 @@
             Tickets from 50p. Answer the skill question, qualify, and you could be
             our next winner. Free postal entry always available.
           </p>
-          <a href="#competitions" class="btn btn--primary btn--lg" data-magnetic data-reveal>
+          <a href="#competitions" class="btn btn--primary btn--lg" data-reveal>
             Browse competitions
           </a>
         </div>
@@ -430,38 +427,8 @@
       </div>
     </footer>
 
-    <!-- ===== SKILL-QUESTION ENTRY MODAL ===== -->
-    <div class="modal" id="entryModal" aria-hidden="true">
-      <div class="modal__backdrop" data-close></div>
-      <div
-        class="modal__panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-        aria-describedby="modalIntro"
-      >
-        <button class="modal__close" data-close aria-label="Close">×</button>
-        <span class="pill pill--quiet modal__badge">Game of skill</span>
-        <h3 class="modal__title" id="modalTitle">Enter the competition</h3>
-        <p class="modal__intro" id="modalIntro">
-          In 4 A Win is decided by skill. Answer the question below correctly to
-          qualify for entry. No correct answer means no entry, that is what makes
-          this a competition and not a lottery.
-        </p>
-
-        <form class="quiz" id="quizForm" novalidate>
-          <p class="quiz__q" id="quizQuestion"></p>
-          <div class="quiz__options" id="quizOptions" role="radiogroup" aria-label="Answer options"></div>
-          <p class="quiz__feedback" id="quizFeedback" role="status" aria-live="polite"></p>
-          <button class="btn btn--primary btn--lg quiz__submit" type="submit" id="quizSubmit">
-            Submit answer
-          </button>
-          <p class="quiz__free">
-            Prefer not to answer here? A free postal entry route is always available.
-          </p>
-        </form>
-      </div>
-    </div>
+    <!-- ===== COMPETITION DETAIL PAGE (rendered by JS) ===== -->
+    <section class="compview" id="compView" aria-hidden="true" aria-label="Competition details"></section>
 
     <script type="module" src="/src/main.js"></script>
   </body>

@@ -8,24 +8,21 @@ import 'splitting/dist/splitting.css'
 import 'swiper/css'
 
 gsap.registerPlugin(ScrollTrigger)
-
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 /* -------------------------------------------------
-   Lenis smooth scroll, synced to GSAP ticker
-   (hoisted so the modal can pause/resume scrolling)
+   Lenis smooth scroll (hoisted for the detail page)
    ------------------------------------------------- */
 let lenis = null
 if (!reduceMotion) {
-  lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1 })
+  lenis = new Lenis({ lerp: 0.1 })
   lenis.on('scroll', ScrollTrigger.update)
   gsap.ticker.add((time) => lenis.raf(time * 1000))
   gsap.ticker.lagSmoothing(0)
-
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href')
-      if (id.length > 1) {
+      if (id.length > 1 && !id.startsWith('#play')) {
         const target = document.querySelector(id)
         if (target) {
           e.preventDefault()
@@ -37,7 +34,7 @@ if (!reduceMotion) {
 }
 
 /* -------------------------------------------------
-   Splitting.js - hero heading char animation
+   Hero heading + reveals + counters + meters
    ------------------------------------------------- */
 Splitting()
 if (!reduceMotion) {
@@ -51,26 +48,18 @@ if (!reduceMotion) {
   })
 }
 
-/* -------------------------------------------------
-   Scroll reveals
-   ------------------------------------------------- */
 const revealEls = document.querySelectorAll('[data-reveal]')
-if (reduceMotion) {
-  revealEls.forEach((el) => el.classList.add('is-in'))
-} else {
-  revealEls.forEach((el) => {
+if (reduceMotion) revealEls.forEach((el) => el.classList.add('is-in'))
+else
+  revealEls.forEach((el) =>
     ScrollTrigger.create({
       trigger: el,
-      start: 'top 88%',
+      start: 'top 90%',
       once: true,
       onEnter: () => el.classList.add('is-in'),
     })
-  })
-}
+  )
 
-/* -------------------------------------------------
-   Progress bars fill on scroll-in
-   ------------------------------------------------- */
 document.querySelectorAll('.progress').forEach((p) => {
   const pct = Math.max(0, Math.min(100, Number(p.dataset.progress) || 0))
   const fill = p.querySelector('.progress__fill')
@@ -80,18 +69,13 @@ document.querySelectorAll('.progress').forEach((p) => {
   }
   ScrollTrigger.create({
     trigger: p,
-    start: 'top 92%',
+    start: 'top 94%',
     once: true,
-    onEnter: () => {
-      fill.style.width = pct + '%'
-    },
+    onEnter: () => (fill.style.width = pct + '%'),
   })
 })
 
-/* -------------------------------------------------
-   Count-up numbers
-   ------------------------------------------------- */
-function formatNumber(n, prefix, suffix) {
+function formatNumber(n, prefix = '', suffix = '') {
   return prefix + Math.round(n).toLocaleString('en-GB') + suffix
 }
 document.querySelectorAll('.js-count').forEach((el) => {
@@ -104,7 +88,7 @@ document.querySelectorAll('.js-count').forEach((el) => {
   }
   ScrollTrigger.create({
     trigger: el,
-    start: 'top 95%',
+    start: 'top 96%',
     once: true,
     onEnter: () => {
       const obj = { v: 0 }
@@ -112,51 +96,40 @@ document.querySelectorAll('.js-count').forEach((el) => {
         v: to,
         duration: 1.6,
         ease: 'power2.out',
-        onUpdate: () => {
-          el.textContent = formatNumber(obj.v, prefix, suffix)
-        },
+        onUpdate: () => (el.textContent = formatNumber(obj.v, prefix, suffix)),
       })
     },
   })
 })
 
 /* -------------------------------------------------
-   Countdown timers
+   Countdown helper (used on the page and detail view)
    ------------------------------------------------- */
-function startCountdowns() {
-  const blocks = document.querySelectorAll('[data-countdown-hours]')
-  const targets = new Map()
-  blocks.forEach((b) => {
-    const hours = Number(b.dataset.countdownHours) || 0
-    targets.set(b, Date.now() + hours * 3600 * 1000)
-  })
-  const pad = (n) => String(n).padStart(2, '0')
-
+const pad = (n) => String(n).padStart(2, '0')
+function liveCountdown(el, endTs) {
+  const hEl = el.querySelector('[data-cd="h"]')
   function tick() {
-    const now = Date.now()
-    targets.forEach((end, b) => {
-      const diff = Math.max(0, end - now)
-      const h = Math.floor(diff / 3.6e6)
-      const m = Math.floor((diff % 3.6e6) / 6e4)
-      const s = Math.floor((diff % 6e4) / 1000)
-      const hEl = b.querySelector('[data-cd="h"]')
-      if (hEl) {
-        hEl.textContent = pad(h)
-        b.querySelector('[data-cd="m"]').textContent = pad(m)
-        b.querySelector('[data-cd="s"]').textContent = pad(s)
-      } else if (h >= 48) b.textContent = `ends in ${Math.round(h / 24)}d`
-      else if (h >= 1) b.textContent = `ends in ${h}h ${pad(m)}m`
-      else b.textContent = `ends in ${m}m ${pad(s)}s`
-    })
+    const diff = Math.max(0, endTs - Date.now())
+    const h = Math.floor(diff / 3.6e6)
+    const m = Math.floor((diff % 3.6e6) / 6e4)
+    const s = Math.floor((diff % 6e4) / 1000)
+    if (hEl) {
+      hEl.textContent = pad(h)
+      el.querySelector('[data-cd="m"]').textContent = pad(m)
+      el.querySelector('[data-cd="s"]').textContent = pad(s)
+    } else if (h >= 48) el.textContent = `ends in ${Math.round(h / 24)}d`
+    else if (h >= 1) el.textContent = `ends in ${h}h ${pad(m)}m`
+    else el.textContent = `ends in ${m}m ${pad(s)}s`
   }
   tick()
-  setInterval(tick, 1000)
+  return setInterval(tick, 1000)
 }
-startCountdowns()
+document.querySelectorAll('[data-countdown-hours]').forEach((el) => {
+  liveCountdown(el, Date.now() + (Number(el.dataset.countdownHours) || 0) * 3.6e6)
+})
 
 /* -------------------------------------------------
-   Winners carousel - continuous, never-ending loop
-   (linear timing + zero-delay autoplay = a smooth conveyor)
+   Winners carousel - continuous loop
    ------------------------------------------------- */
 const winnersSwiper = new Swiper('.winners__swiper', {
   modules: [Autoplay],
@@ -164,20 +137,16 @@ const winnersSwiper = new Swiper('.winners__swiper', {
   loopAdditionalSlides: 3,
   slidesPerView: 1.15,
   spaceBetween: 16,
-  centeredSlides: false,
   grabCursor: true,
   speed: reduceMotion ? 500 : 4200,
-  allowTouchMove: true,
   autoplay: reduceMotion
     ? false
     : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
   breakpoints: {
     640: { slidesPerView: 2.2, spaceBetween: 20 },
-    1024: { slidesPerView: 3.4, spaceBetween: 24 },
+    1024: { slidesPerView: 3.4, spaceBetween: 22 },
   },
 })
-
-// Manual nav buttons (snappier than the continuous speed)
 const winNext = document.getElementById('winNext')
 const winPrev = document.getElementById('winPrev')
 if (winNext) winNext.addEventListener('click', () => winnersSwiper.slideNext(600))
@@ -193,29 +162,146 @@ ScrollTrigger.create({
   onUpdate: (self) => nav.classList.toggle('is-stuck', self.scroll() > 40),
 })
 
-/* -------------------------------------------------
-   Magnetic buttons
-   ------------------------------------------------- */
-if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-  document.querySelectorAll('[data-magnetic]').forEach((el) => {
-    const strength = 0.35
-    el.addEventListener('mousemove', (e) => {
-      const r = el.getBoundingClientRect()
-      const x = (e.clientX - r.left - r.width / 2) * strength
-      const y = (e.clientY - r.top - r.height / 2) * strength
-      gsap.to(el, { x, y, duration: 0.4, ease: 'power3.out' })
-    })
-    el.addEventListener('mouseleave', () => {
-      gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' })
-    })
-  })
+/* =================================================
+   COMPETITION DETAIL PAGE + SKILL ENTRY
+   ================================================= */
+const WM = 'https://commons.wikimedia.org/wiki/Special:FilePath/'
+const COMPETITIONS = {
+  porsche: {
+    name: 'Porsche 911 GT3 RS + £10,000 cash',
+    category: 'Cars',
+    image: WM + 'Porsche%20911%20GT3%20RS%20%282022%29%201X7A7164.jpg?width=1100',
+    alt: 'Porsche 911 GT3 RS sports car',
+    value: '£92,500',
+    cashAlt: '£82,000',
+    price: 2.49,
+    sold: 8842,
+    total: 12500,
+    hours: 46,
+    details: [
+      '2022 Porsche 911 GT3 RS finished in Racing White',
+      '4.0L naturally aspirated flat-six, 525 PS',
+      'Plus £10,000 tax-free cash on top',
+      '12 months insurance and road tax included',
+      'Delivered free anywhere in mainland UK',
+      'Full cash alternative of £82,000 if you prefer',
+    ],
+  },
+  rolex: {
+    name: 'Rolex Submariner Date',
+    category: 'Luxury',
+    image: WM + 'Rolex-Submariner.jpg?width=1100',
+    alt: 'Rolex Submariner watch',
+    value: '£13,200',
+    cashAlt: '£11,000',
+    price: 0.99,
+    sold: 5210,
+    total: 9000,
+    hours: 18,
+    details: [
+      'Rolex Submariner Date, 41mm Oystersteel',
+      'Brand new, full box and papers',
+      '5-year Rolex international guarantee',
+      'Insured, tracked delivery',
+      'Or take £11,000 in cash instead',
+    ],
+  },
+  cash25k: {
+    name: '£25,000 Tax-Free Cash',
+    category: 'Cash',
+    image: WM + 'White-note-50-pounds.jpg?width=1100',
+    alt: 'British banknote, cash prize',
+    value: '£25,000',
+    cashAlt: null,
+    price: 1.2,
+    sold: 16600,
+    total: 20000,
+    hours: 9,
+    details: [
+      '£25,000 paid directly to your bank',
+      'Completely tax-free, no deductions',
+      'Funds cleared within 48 hours of the draw',
+      'No catch, spend it however you like',
+    ],
+  },
+  maldives: {
+    name: 'Maldives Getaway for Two',
+    category: 'Travel',
+    image: WM + 'MaldivesBungalows.jpg?width=1100',
+    alt: 'Overwater villas in the Maldives',
+    value: '£9,800',
+    cashAlt: '£8,000',
+    price: 1.49,
+    sold: 2380,
+    total: 7000,
+    hours: 63,
+    details: [
+      '7 nights in an overwater villa',
+      'Return flights for two included',
+      'Half-board dining package',
+      'Speedboat airport transfers',
+      'Travel any time within 12 months',
+      'Or take £8,000 in cash',
+    ],
+  },
+  apple: {
+    name: 'Ultimate Apple Tech Bundle',
+    category: 'Tech',
+    image: WM + 'Apple%20MacBook%20Pro%2016%22%20M2%20Max.jpg?width=1100',
+    alt: 'Apple MacBook Pro 16-inch',
+    value: '£6,400',
+    cashAlt: '£5,000',
+    price: 0.79,
+    sold: 7360,
+    total: 8000,
+    hours: 5,
+    details: [
+      '16-inch MacBook Pro (M-series)',
+      'iPhone 15 Pro Max',
+      'Apple Watch Ultra 2',
+      'AirPods Pro',
+      'Or take £5,000 in cash',
+    ],
+  },
+  defender: {
+    name: 'Land Rover Defender 90',
+    category: 'Cars',
+    image: WM + 'Land%20Rover%20Defender%2090%20%28L663%29%20IMG%209441.jpg?width=1100',
+    alt: 'Land Rover Defender 90',
+    value: '£68,000',
+    cashAlt: '£58,000',
+    price: 2.99,
+    sold: 9870,
+    total: 21000,
+    hours: 40,
+    details: [
+      'Brand new Land Rover Defender 90',
+      'Permanent four-wheel drive',
+      '12 months insurance and road tax included',
+      'Delivered free anywhere in mainland UK',
+      'Or take £58,000 in cash',
+    ],
+  },
+  vouchers: {
+    name: '£2,000 Voucher Vault',
+    category: 'Vouchers',
+    image: WM + 'Gift%20card%20assortment.jpg?width=1100',
+    alt: 'Assortment of gift cards and vouchers',
+    value: '£2,000',
+    cashAlt: null,
+    price: 0.5,
+    sold: 6620,
+    total: 10000,
+    hours: 27,
+    details: [
+      '£2,000 in gift cards of your choice',
+      'Amazon, John Lewis, Selfridges, M&S and more',
+      'Digital delivery within 24 hours',
+      'Split it across as many retailers as you like',
+    ],
+  },
 }
 
-/* -------------------------------------------------
-   Skill-question entry modal
-   The mechanic that makes this a game of skill, not gambling:
-   you must answer a question correctly to qualify for entry.
-   ------------------------------------------------- */
 const QUESTIONS = [
   { q: 'What is the capital city of Australia?', options: ['Sydney', 'Canberra', 'Melbourne', 'Perth'], answer: 1 },
   { q: 'Which planet is closest to the Sun?', options: ['Venus', 'Mercury', 'Mars', 'Earth'], answer: 1 },
@@ -228,125 +314,220 @@ const QUESTIONS = [
   { q: 'Which gas do plants mainly absorb from the air?', options: ['Oxygen', 'Nitrogen', 'Carbon dioxide', 'Hydrogen'], answer: 2 },
   { q: 'How many minutes are there in two and a half hours?', options: ['120', '150', '160', '90'], answer: 1 },
 ]
+const TICKET_OPTIONS = [1, 5, 10, 25]
+const gbp = (n) =>
+  '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
-const modal = document.getElementById('entryModal')
-if (modal) {
-  const panel = modal.querySelector('.modal__panel')
-  const titleEl = document.getElementById('modalTitle')
-  const qEl = document.getElementById('quizQuestion')
-  const optionsEl = document.getElementById('quizOptions')
-  const feedbackEl = document.getElementById('quizFeedback')
-  const form = document.getElementById('quizForm')
-  const submitBtn = document.getElementById('quizSubmit')
+const compView = document.getElementById('compView')
+let lastFocused = null
+let viewTimers = []
 
-  let current = null
+function clearViewTimers() {
+  viewTimers.forEach(clearInterval)
+  viewTimers = []
+}
+
+function renderCompetition(id) {
+  const c = COMPETITIONS[id]
+  const pct = Math.round((c.sold / c.total) * 100)
+  const left = (c.total - c.sold).toLocaleString('en-GB')
+  const q = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)]
+
+  compView.innerHTML = `
+    <div class="compview__bar">
+      <button class="compview__back" id="compBack" type="button">&larr; All competitions</button>
+      <span class="compview__cat">${c.category}</span>
+    </div>
+    <div class="compview__grid">
+      <div class="compview__media">
+        <img src="${c.image}" alt="${c.alt}" />
+        <div class="compview__media-foot">
+          <span>${gbp(c.price)} per ticket</span>
+          <span class="compview__cash">${c.cashAlt ? 'Cash alternative ' + c.cashAlt : 'Paid as cash'}</span>
+        </div>
+      </div>
+
+      <div class="compview__info">
+        <h1 class="compview__title">${c.name}</h1>
+        <p class="compview__value">Prize value <b>${c.value}</b></p>
+
+        <div class="compview__meta">
+          <div>
+            <div class="compview__metalabel">Closes in</div>
+            <div class="countdown" data-cv-countdown>
+              <div class="countdown__unit"><b data-cd="h">00</b><span>hrs</span></div>
+              <div class="countdown__unit"><b data-cd="m">00</b><span>min</span></div>
+              <div class="countdown__unit"><b data-cd="s">00</b><span>sec</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="compview__metalabel">Tickets remaining</div>
+            <div class="progress" style="margin-top:.2rem;max-width:240px">
+              <div class="progress__track"><span class="progress__fill" style="width:${pct}%"></span></div>
+              <div class="progress__labels"><b>${left} left</b><span>${pct}% sold</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compview__details">
+          <h3>What you win</h3>
+          <ul>${c.details.map((d) => `<li>${d}</li>`).join('')}</ul>
+        </div>
+
+        <div class="entry" id="entryPanel">
+          <div class="entry__head">
+            <h3>Enter this competition</h3>
+            <span class="entry__step">Game of skill</span>
+          </div>
+
+          <div class="entry__label">1. Choose your tickets</div>
+          <div class="tickets" id="ticketRow">
+            ${TICKET_OPTIONS.map(
+              (n, i) =>
+                `<button type="button" class="tickets__opt${i === 0 ? ' is-active' : ''}" data-qty="${n}">${n}</button>`
+            ).join('')}
+          </div>
+          <div class="entry__total">
+            <span>Total for <b id="qtyLabel">1</b> ticket(s)</span>
+            <b id="totalCost">${gbp(c.price)}</b>
+          </div>
+
+          <div class="entry__label">2. Answer to qualify</div>
+          <div class="skillq">
+            <span class="skillq__tag">Skill question</span>
+            <p class="skillq__q">${q.q}</p>
+            <div class="skillq__options" id="skillOptions" role="radiogroup" aria-label="Answer options">
+              ${q.options
+                .map(
+                  (o, i) =>
+                    `<button type="button" class="skillq__opt" role="radio" aria-checked="false" data-i="${i}">${o}</button>`
+                )
+                .join('')}
+            </div>
+          </div>
+
+          <p class="entry__feedback" id="entryFeedback" role="status" aria-live="polite"></p>
+          <button class="btn btn--primary btn--lg entry__confirm" id="entryConfirm" type="button">
+            Confirm entry
+          </button>
+          <p class="entry__free">Prefer not to pay? A free postal entry route is always available.</p>
+        </div>
+      </div>
+    </div>`
+
+  // ---- wire interactions ----
+  const cd = compView.querySelector('[data-cv-countdown]')
+  viewTimers.push(liveCountdown(cd, Date.now() + c.hours * 3.6e6))
+
+  let qty = 1
   let selected = -1
-  let solved = false
-  let lastFocused = null
-
-  function pickQuestion() {
-    current = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)]
-    selected = -1
-    solved = false
-    qEl.textContent = current.q
-    feedbackEl.textContent = ''
-    feedbackEl.className = 'quiz__feedback'
-    submitBtn.textContent = 'Submit answer'
-    submitBtn.disabled = false
-    optionsEl.innerHTML = ''
-    current.options.forEach((opt, i) => {
-      const b = document.createElement('button')
-      b.type = 'button'
-      b.className = 'quiz__opt'
-      b.textContent = opt
-      b.setAttribute('role', 'radio')
-      b.setAttribute('aria-checked', 'false')
-      b.addEventListener('click', () => {
-        if (solved) return
-        selected = i
-        optionsEl.querySelectorAll('.quiz__opt').forEach((o, j) => {
-          o.classList.toggle('is-selected', j === i)
-          o.setAttribute('aria-checked', j === i ? 'true' : 'false')
-        })
-        feedbackEl.textContent = ''
-        feedbackEl.className = 'quiz__feedback'
-      })
-      optionsEl.appendChild(b)
-    })
-  }
-
-  function openModal(prize) {
-    lastFocused = document.activeElement
-    titleEl.textContent = prize ? `Enter: ${prize}` : 'Enter the competition'
-    pickQuestion()
-    modal.classList.add('is-open')
-    modal.setAttribute('aria-hidden', 'false')
-    document.body.classList.add('modal-open')
-    if (lenis) lenis.stop()
-    requestAnimationFrame(() => {
-      const first = optionsEl.querySelector('.quiz__opt')
-      if (first) first.focus()
-    })
-  }
-
-  function closeModal() {
-    modal.classList.remove('is-open')
-    modal.setAttribute('aria-hidden', 'true')
-    document.body.classList.remove('modal-open')
-    if (lenis) lenis.start()
-    if (lastFocused && lastFocused.focus) lastFocused.focus()
-  }
-
-  // Open from every Enter button
-  document.querySelectorAll('[data-enter]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault()
-      openModal(btn.dataset.prize)
+  const qtyLabel = compView.querySelector('#qtyLabel')
+  const totalCost = compView.querySelector('#totalCost')
+  compView.querySelectorAll('.tickets__opt').forEach((b) => {
+    b.addEventListener('click', () => {
+      qty = Number(b.dataset.qty)
+      compView.querySelectorAll('.tickets__opt').forEach((o) => o.classList.toggle('is-active', o === b))
+      qtyLabel.textContent = qty
+      totalCost.textContent = gbp(c.price * qty)
     })
   })
 
-  // Close interactions
-  modal.querySelectorAll('[data-close]').forEach((el) =>
-    el.addEventListener('click', closeModal)
-  )
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal()
-  })
-
-  // Submit / check answer
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    if (solved) {
-      closeModal()
-      return
-    }
-    if (selected === -1) {
-      feedbackEl.textContent = 'Please choose an answer to qualify.'
-      feedbackEl.className = 'quiz__feedback is-warn'
-      return
-    }
-    const opts = optionsEl.querySelectorAll('.quiz__opt')
-    if (selected === current.answer) {
-      solved = true
+  const feedback = compView.querySelector('#entryFeedback')
+  const opts = compView.querySelectorAll('.skillq__opt')
+  opts.forEach((b) =>
+    b.addEventListener('click', () => {
+      selected = Number(b.dataset.i)
       opts.forEach((o, j) => {
-        o.disabled = true
-        if (j === current.answer) o.classList.add('is-correct')
+        o.classList.toggle('is-selected', j === selected)
+        o.setAttribute('aria-checked', j === selected ? 'true' : 'false')
       })
-      feedbackEl.textContent = 'Correct. You have qualified, your entry is locked in.'
-      feedbackEl.className = 'quiz__feedback is-correct'
-      submitBtn.textContent = "You're entered ✓"
-      if (!reduceMotion) {
-        gsap.fromTo(
-          panel,
-          { scale: 0.99 },
-          { scale: 1, duration: 0.4, ease: 'back.out(2)' }
-        )
-      }
+      feedback.textContent = ''
+      feedback.className = 'entry__feedback'
+    })
+  )
+
+  compView.querySelector('#entryConfirm').addEventListener('click', () => {
+    if (selected === -1) {
+      feedback.textContent = 'Choose your answer to the skill question to qualify.'
+      feedback.className = 'entry__feedback is-warn'
+      return
+    }
+    if (selected === q.answer) {
+      opts[selected].classList.add('is-correct')
+      const panel = compView.querySelector('#entryPanel')
+      panel.classList.add('entry--done')
+      panel.innerHTML = `
+        <div class="entry__done-icon">&#10003;</div>
+        <h3>You're entered. Good luck!</h3>
+        <p>${qty} ticket${qty > 1 ? 's' : ''} into <b>${c.name}</b> for ${gbp(c.price * qty)}.</p>
+        <p style="margin-top:.5rem">The draw is streamed live when the timer hits zero. We'll email your unique ticket numbers shortly.</p>
+        <button class="btn btn--ghost btn--lg" type="button" id="entryBackBtn" style="margin-top:1.2rem">Back to competitions</button>`
+      compView.querySelector('#entryBackBtn').addEventListener('click', closeCompetition)
+      if (!reduceMotion) gsap.from(panel, { scale: 0.98, duration: 0.4, ease: 'back.out(2)' })
     } else {
       opts[selected].classList.add('is-wrong')
-      feedbackEl.textContent = 'Not quite. Here is a fresh question, try again.'
-      feedbackEl.className = 'quiz__feedback is-warn'
-      setTimeout(pickQuestion, 1100)
+      feedback.textContent = 'Not quite. A fresh question is loading, try again.'
+      feedback.className = 'entry__feedback is-warn'
+      setTimeout(() => renderCompetition(id), 1200)
     }
   })
+
+  compView.querySelector('#compBack').addEventListener('click', closeCompetition)
 }
+
+function showView(id) {
+  lastFocused = document.activeElement
+  clearViewTimers()
+  renderCompetition(id)
+  compView.classList.add('is-open')
+  compView.setAttribute('aria-hidden', 'false')
+  document.body.classList.add('view-open')
+  if (lenis) lenis.stop()
+  compView.scrollTop = 0
+  const back = compView.querySelector('#compBack')
+  if (back) back.focus()
+}
+function hideView() {
+  clearViewTimers()
+  compView.classList.remove('is-open')
+  compView.setAttribute('aria-hidden', 'true')
+  document.body.classList.remove('view-open')
+  if (lenis) lenis.start()
+  if (lastFocused && lastFocused.focus) lastFocused.focus()
+}
+function openCompetition(id) {
+  if (!COMPETITIONS[id]) return
+  showView(id)
+  if (location.hash !== '#play-' + id) history.pushState({ comp: id }, '', '#play-' + id)
+}
+function closeCompetition() {
+  hideView()
+  if (location.hash.startsWith('#play-'))
+    history.pushState({}, '', location.pathname + location.search)
+}
+
+// Open from any element carrying data-comp
+document.querySelectorAll('[data-comp]').forEach((el) => {
+  el.addEventListener('click', () => openCompetition(el.dataset.comp))
+  if (el.getAttribute('role') === 'link') {
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        openCompetition(el.dataset.comp)
+      }
+    })
+  }
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && compView.classList.contains('is-open')) closeCompetition()
+})
+
+// Browser back/forward + deep links (#play-<id>)
+window.addEventListener('popstate', () => {
+  const m = location.hash.match(/^#play-(.+)/)
+  if (m && COMPETITIONS[m[1]]) showView(m[1])
+  else hideView()
+})
+const deep = location.hash.match(/^#play-(.+)/)
+if (deep && COMPETITIONS[deep[1]]) showView(deep[1])

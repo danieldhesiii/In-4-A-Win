@@ -10,7 +10,6 @@
           "in4awin_index_splitting_heading",
           "in4awin_index_progress",
           "in4awin_index_count_up",
-          "in4awin_index_magnetic_cta",
           "in4awin_index_countdown"
         ],
         "relation": "participate_in",
@@ -23,10 +22,11 @@
         "label": "Game-of-Skill Entry Flow",
         "nodes": [
           "in4awin_index_competition_card",
-          "in4awin_index_skill_modal",
+          "in4awin_index_comp_detail_page",
+          "in4awin_index_ticket_selector",
+          "in4awin_index_skill_question",
           "in4awin_index_game_of_skill",
-          "in4awin_index_free_postal_entry",
-          "in4awin_index_winners"
+          "in4awin_index_free_postal_entry"
         ],
         "relation": "form",
         "confidence": "INFERRED",
@@ -42,7 +42,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "package.json",
       "id": "package"
     },
@@ -52,7 +52,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "name",
       "id": "package_name"
     },
@@ -62,7 +62,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "version",
       "id": "package_version"
     },
@@ -72,7 +72,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "description",
       "id": "package_description"
     },
@@ -82,7 +82,7 @@
       "source_file": "package.json",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 5,
+      "community": 1,
       "norm_label": "scripts",
       "id": "package_scripts"
     },
@@ -92,7 +92,7 @@
       "source_file": "package.json",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 5,
+      "community": 1,
       "norm_label": "dev",
       "id": "package_scripts_dev"
     },
@@ -102,7 +102,7 @@
       "source_file": "package.json",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 5,
+      "community": 1,
       "norm_label": "build",
       "id": "package_scripts_build"
     },
@@ -112,7 +112,7 @@
       "source_file": "package.json",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 5,
+      "community": 1,
       "norm_label": "preview",
       "id": "package_scripts_preview"
     },
@@ -122,7 +122,7 @@
       "source_file": "package.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "type",
       "id": "package_type"
     },
@@ -132,7 +132,7 @@
       "source_file": "package.json",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "devdependencies",
       "id": "package_devdependencies"
     },
@@ -142,7 +142,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 3,
+      "community": 1,
       "norm_label": "vite",
       "id": "package_devdependencies_vite"
     },
@@ -197,6 +197,19 @@
       "id": "package_dependencies_swiper"
     },
     {
+      "label": "Project README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "project readme",
+      "id": "readme_readme_overview"
+    },
+    {
       "label": "main.js",
       "file_type": "code",
       "source_file": "src/main.js",
@@ -210,7 +223,7 @@
       "label": "revealEls",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L57",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "src_main_revealels",
       "community": 0,
@@ -220,27 +233,37 @@
       "label": "formatNumber()",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L94",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "src_main_formatnumber",
       "community": 0,
       "norm_label": "formatnumber()"
     },
     {
-      "label": "startCountdowns()",
+      "label": "pad()",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L126",
+      "source_location": "L108",
       "_origin": "ast",
-      "id": "src_main_startcountdowns",
+      "id": "src_main_pad",
       "community": 0,
-      "norm_label": "startcountdowns()"
+      "norm_label": "pad()"
+    },
+    {
+      "label": "liveCountdown()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "src_main_livecountdown",
+      "community": 5,
+      "norm_label": "livecountdown()"
     },
     {
       "label": "winnersSwiper",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L161",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "src_main_winnersswiper",
       "community": 0,
@@ -250,7 +273,7 @@
       "label": "winNext",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L181",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "src_main_winnext",
       "community": 0,
@@ -260,7 +283,7 @@
       "label": "winPrev",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L182",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "src_main_winprev",
       "community": 0,
@@ -270,61 +293,141 @@
       "label": "nav",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L189",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "src_main_nav",
       "community": 0,
       "norm_label": "nav"
     },
     {
+      "label": "COMPETITIONS",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "src_main_competitions",
+      "community": 0,
+      "norm_label": "competitions"
+    },
+    {
       "label": "QUESTIONS",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L219",
+      "source_location": "L305",
       "_origin": "ast",
       "id": "src_main_questions",
       "community": 0,
       "norm_label": "questions"
     },
     {
-      "label": "modal",
+      "label": "TICKET_OPTIONS",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L232",
+      "source_location": "L317",
       "_origin": "ast",
-      "id": "src_main_modal",
+      "id": "src_main_ticket_options",
       "community": 0,
-      "norm_label": "modal"
+      "norm_label": "ticket_options"
     },
     {
-      "label": "pickQuestion()",
+      "label": "gbp()",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L247",
+      "source_location": "L318",
       "_origin": "ast",
-      "id": "src_main_pickquestion",
-      "community": 6,
-      "norm_label": "pickquestion()"
+      "id": "src_main_gbp",
+      "community": 5,
+      "norm_label": "gbp()"
     },
     {
-      "label": "openModal()",
+      "label": "compView",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L278",
+      "source_location": "L321",
       "_origin": "ast",
-      "id": "src_main_openmodal",
-      "community": 6,
-      "norm_label": "openmodal()"
-    },
-    {
-      "label": "closeModal()",
-      "file_type": "code",
-      "source_file": "src/main.js",
-      "source_location": "L292",
-      "_origin": "ast",
-      "id": "src_main_closemodal",
+      "id": "src_main_compview",
       "community": 0,
-      "norm_label": "closemodal()"
+      "norm_label": "compview"
+    },
+    {
+      "label": "viewTimers",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L323",
+      "_origin": "ast",
+      "id": "src_main_viewtimers",
+      "community": 0,
+      "norm_label": "viewtimers"
+    },
+    {
+      "label": "clearViewTimers()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L325",
+      "_origin": "ast",
+      "id": "src_main_clearviewtimers",
+      "community": 7,
+      "norm_label": "clearviewtimers()"
+    },
+    {
+      "label": "renderCompetition()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L330",
+      "_origin": "ast",
+      "id": "src_main_rendercompetition",
+      "community": 5,
+      "norm_label": "rendercompetition()"
+    },
+    {
+      "label": "showView()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L478",
+      "_origin": "ast",
+      "id": "src_main_showview",
+      "community": 5,
+      "norm_label": "showview()"
+    },
+    {
+      "label": "hideView()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L490",
+      "_origin": "ast",
+      "id": "src_main_hideview",
+      "community": 7,
+      "norm_label": "hideview()"
+    },
+    {
+      "label": "openCompetition()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L498",
+      "_origin": "ast",
+      "id": "src_main_opencompetition",
+      "community": 5,
+      "norm_label": "opencompetition()"
+    },
+    {
+      "label": "closeCompetition()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L503",
+      "_origin": "ast",
+      "id": "src_main_closecompetition",
+      "community": 7,
+      "norm_label": "closecompetition()"
+    },
+    {
+      "label": "deep",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L532",
+      "_origin": "ast",
+      "id": "src_main_deep",
+      "community": 0,
+      "norm_label": "deep"
     },
     {
       "label": "Sticky Navigation",
@@ -336,7 +439,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_nav",
-      "community": 1,
+      "community": 2,
       "norm_label": "sticky navigation"
     },
     {
@@ -349,20 +452,20 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_hero",
-      "community": 2,
+      "community": 3,
       "norm_label": "hero section"
     },
     {
       "label": "Featured Competition (Porsche 911 GT3 RS)",
       "file_type": "document",
       "source_file": "index.html",
-      "source_location": "aside.featured",
+      "source_location": "article.featured",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "in4awin_index_featured_comp",
-      "community": 2,
+      "community": 3,
       "norm_label": "featured competition (porsche 911 gt3 rs)"
     },
     {
@@ -375,21 +478,86 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_competitions_grid",
-      "community": 1,
+      "community": 2,
       "norm_label": "live competitions grid"
     },
     {
-      "label": "Competition Card",
+      "label": "Competition Card (clickable)",
       "file_type": "concept",
       "source_file": "index.html",
-      "source_location": "article.card",
+      "source_location": "article.card[data-comp]",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "in4awin_index_competition_card",
-      "community": 1,
-      "norm_label": "competition card"
+      "community": 2,
+      "norm_label": "competition card (clickable)"
+    },
+    {
+      "label": "Competition Detail Page",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "#compView",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_comp_detail_page",
+      "community": 2,
+      "norm_label": "competition detail page"
+    },
+    {
+      "label": "Ticket Quantity Selector",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".tickets",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_ticket_selector",
+      "community": 2,
+      "norm_label": "ticket quantity selector"
+    },
+    {
+      "label": "Skill Question Gate",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".skillq",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_skill_question",
+      "community": 6,
+      "norm_label": "skill question gate"
+    },
+    {
+      "label": "Game of Skill Mechanic",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": "#entryPanel",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_game_of_skill",
+      "community": 6,
+      "norm_label": "game of skill mechanic"
+    },
+    {
+      "label": "Free Postal Entry Route",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".entry__free",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_free_postal_entry",
+      "community": 2,
+      "norm_label": "free postal entry route"
     },
     {
       "label": "How It Works Stepper",
@@ -401,7 +569,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_how_it_works",
-      "community": 1,
+      "community": 6,
       "norm_label": "how it works stepper"
     },
     {
@@ -414,7 +582,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_winners",
-      "community": 1,
+      "community": 2,
       "norm_label": "winners carousel (continuous loop)"
     },
     {
@@ -427,7 +595,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_stats",
-      "community": 2,
+      "community": 3,
       "norm_label": "stats band"
     },
     {
@@ -440,7 +608,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_cta",
-      "community": 1,
+      "community": 2,
       "norm_label": "closing cta"
     },
     {
@@ -453,7 +621,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_footer",
-      "community": 7,
+      "community": 8,
       "norm_label": "footer"
     },
     {
@@ -473,7 +641,7 @@
       "label": "Ticket Progress Bar",
       "file_type": "concept",
       "source_file": "index.html",
-      "source_location": ".progress[data-progress]",
+      "source_location": ".progress",
       "source_url": null,
       "captured_at": null,
       "author": null,
@@ -481,19 +649,6 @@
       "id": "in4awin_index_progress",
       "community": 2,
       "norm_label": "ticket progress bar"
-    },
-    {
-      "label": "Magnetic CTA Button",
-      "file_type": "concept",
-      "source_file": "index.html",
-      "source_location": "[data-magnetic]",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "in4awin_index_magnetic_cta",
-      "community": 8,
-      "norm_label": "magnetic cta button"
     },
     {
       "label": "Splitting.js Hero Heading",
@@ -505,7 +660,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_splitting_heading",
-      "community": 2,
+      "community": 3,
       "norm_label": "splitting.js hero heading"
     },
     {
@@ -518,60 +673,8 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_count_up",
-      "community": 2,
+      "community": 3,
       "norm_label": "animated count-up stats"
-    },
-    {
-      "label": "Skill-Question Entry Modal",
-      "file_type": "document",
-      "source_file": "index.html",
-      "source_location": "#entryModal",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "in4awin_index_skill_modal",
-      "community": 1,
-      "norm_label": "skill-question entry modal"
-    },
-    {
-      "label": "Game of Skill Mechanic",
-      "file_type": "concept",
-      "source_file": "index.html",
-      "source_location": "#quizForm",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "in4awin_index_game_of_skill",
-      "community": 1,
-      "norm_label": "game of skill mechanic"
-    },
-    {
-      "label": "Free Postal Entry Route",
-      "file_type": "concept",
-      "source_file": "index.html",
-      "source_location": ".quiz__free",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "in4awin_index_free_postal_entry",
-      "community": 1,
-      "norm_label": "free postal entry route"
-    },
-    {
-      "label": "Project README",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "readme_readme_overview",
-      "community": 1,
-      "norm_label": "project readme"
     }
   ],
   "links": [
@@ -726,20 +829,70 @@
       "target": "package_dependencies_swiper"
     },
     {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_readme_overview",
+      "target": "in4awin_index_game_of_skill"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L292",
+      "source_location": "L325",
       "weight": 1.0,
       "source": "src_main",
-      "target": "src_main_closemodal",
+      "target": "src_main_clearviewtimers",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L94",
+      "source_location": "L503",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_closecompetition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_competitions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_compview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L532",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_deep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L78",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_formatnumber",
@@ -749,17 +902,37 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L232",
+      "source_location": "L318",
       "weight": 1.0,
       "source": "src_main",
-      "target": "src_main_modal",
+      "target": "src_main_gbp",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L189",
+      "source_location": "L490",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_hideview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_livecountdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L158",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_nav",
@@ -769,27 +942,27 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L278",
+      "source_location": "L498",
       "weight": 1.0,
       "source": "src_main",
-      "target": "src_main_openmodal",
+      "target": "src_main_opencompetition",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L247",
+      "source_location": "L108",
       "weight": 1.0,
       "source": "src_main",
-      "target": "src_main_pickquestion",
+      "target": "src_main_pad",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L219",
+      "source_location": "L305",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_questions",
@@ -799,7 +972,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L57",
+      "source_location": "L330",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_rendercompetition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L51",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_revealels",
@@ -809,17 +992,37 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L126",
+      "source_location": "L478",
       "weight": 1.0,
       "source": "src_main",
-      "target": "src_main_startcountdowns",
+      "target": "src_main_showview",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L161",
+      "source_location": "L317",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_ticket_options",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L323",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_viewtimers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L134",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_winnersswiper",
@@ -829,7 +1032,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L181",
+      "source_location": "L150",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_winnext",
@@ -839,7 +1042,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L182",
+      "source_location": "L151",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_winprev",
@@ -850,10 +1053,76 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L281",
+      "source_location": "L420",
       "weight": 1.0,
-      "source": "src_main_openmodal",
-      "target": "src_main_pickquestion",
+      "source": "src_main_rendercompetition",
+      "target": "src_main_livecountdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L345",
+      "weight": 1.0,
+      "source": "src_main_rendercompetition",
+      "target": "src_main_gbp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L491",
+      "weight": 1.0,
+      "source": "src_main_hideview",
+      "target": "src_main_clearviewtimers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L480",
+      "weight": 1.0,
+      "source": "src_main_showview",
+      "target": "src_main_clearviewtimers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L481",
+      "weight": 1.0,
+      "source": "src_main_showview",
+      "target": "src_main_rendercompetition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L500",
+      "weight": 1.0,
+      "source": "src_main_opencompetition",
+      "target": "src_main_showview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L504",
+      "weight": 1.0,
+      "source": "src_main_closecompetition",
+      "target": "src_main_hideview",
       "confidence_score": 1.0
     },
     {
@@ -865,16 +1134,6 @@
       "weight": 1.0,
       "source": "in4awin_index_nav",
       "target": "in4awin_index_competitions_grid"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_nav",
-      "target": "in4awin_index_how_it_works"
     },
     {
       "relation": "references",
@@ -911,40 +1170,20 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
+      "source_location": "[data-comp]",
+      "weight": 1.0,
+      "source": "in4awin_index_featured_comp",
+      "target": "in4awin_index_comp_detail_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
       "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_featured_comp",
       "target": "in4awin_index_count_up"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_featured_comp",
-      "target": "in4awin_index_countdown"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_featured_comp",
-      "target": "in4awin_index_progress"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": "[data-enter]",
-      "weight": 1.0,
-      "source": "in4awin_index_featured_comp",
-      "target": "in4awin_index_skill_modal"
     },
     {
       "relation": "references",
@@ -963,6 +1202,26 @@
       "source_file": "index.html",
       "source_location": null,
       "weight": 1.0,
+      "source": "in4awin_index_cta",
+      "target": "in4awin_index_competitions_grid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "[data-comp]",
+      "weight": 1.0,
+      "source": "in4awin_index_competition_card",
+      "target": "in4awin_index_comp_detail_page"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
       "source": "in4awin_index_competition_card",
       "target": "in4awin_index_countdown"
     },
@@ -977,16 +1236,6 @@
       "target": "in4awin_index_progress"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": "[data-enter]",
-      "weight": 1.0,
-      "source": "in4awin_index_competition_card",
-      "target": "in4awin_index_skill_modal"
-    },
-    {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
       "confidence_score": 0.65,
@@ -995,6 +1244,56 @@
       "weight": 1.0,
       "source": "in4awin_index_winners",
       "target": "in4awin_index_competition_card"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_comp_detail_page",
+      "target": "in4awin_index_countdown"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_comp_detail_page",
+      "target": "in4awin_index_free_postal_entry"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_comp_detail_page",
+      "target": "in4awin_index_skill_question"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_comp_detail_page",
+      "target": "in4awin_index_ticket_selector"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_skill_question",
+      "target": "in4awin_index_game_of_skill"
     },
     {
       "relation": "conceptually_related_to",
@@ -1015,46 +1314,6 @@
       "weight": 1.0,
       "source": "in4awin_index_stats",
       "target": "in4awin_index_count_up"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_cta",
-      "target": "in4awin_index_game_of_skill"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_skill_modal",
-      "target": "in4awin_index_free_postal_entry"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_skill_modal",
-      "target": "in4awin_index_game_of_skill"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_readme_overview",
-      "target": "in4awin_index_game_of_skill"
     }
   ],
   "hyperedges": [
@@ -1065,7 +1324,6 @@
         "in4awin_index_splitting_heading",
         "in4awin_index_progress",
         "in4awin_index_count_up",
-        "in4awin_index_magnetic_cta",
         "in4awin_index_countdown"
       ],
       "relation": "participate_in",
@@ -1078,10 +1336,11 @@
       "label": "Game-of-Skill Entry Flow",
       "nodes": [
         "in4awin_index_competition_card",
-        "in4awin_index_skill_modal",
+        "in4awin_index_comp_detail_page",
+        "in4awin_index_ticket_selector",
+        "in4awin_index_skill_question",
         "in4awin_index_game_of_skill",
-        "in4awin_index_free_postal_entry",
-        "in4awin_index_winners"
+        "in4awin_index_free_postal_entry"
       ],
       "relation": "form",
       "confidence": "INFERRED",
@@ -1089,5 +1348,5 @@
       "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
     }
   ],
-  "built_at_commit": "ef9a02b94d19cd290b1e4c226dfce3baa435d9e0"
+  "built_at_commit": "a945a68b0a92f360f29fc7973e6b324206a5c6db"
 }
