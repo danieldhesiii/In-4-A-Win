@@ -906,6 +906,8 @@ a {
   z-index: 120;
   background: var(--bg);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   display: none;
 }
 .compview.is-open {
