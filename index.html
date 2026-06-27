@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="In 4 A Win - win dream cars, cash and luxury prizes from £1.20. New draws every week. Real winners, every time." />
+    <title>In 4 A Win - Win cars, cash & luxury for the price of a coffee</title>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- ===== NAV ===== -->
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="#top" class="nav__logo" aria-label="In 4 A Win home">
+          <span class="nav__logo-mark">i4</span>
+          <span class="nav__logo-text">In&nbsp;4&nbsp;A&nbsp;Win</span>
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#competitions">Competitions</a>
+          <a href="#winners">Winners</a>
+          <a href="#how">How it works</a>
+        </nav>
+        <div class="nav__actions">
+          <a href="#" class="btn btn--ghost">Sign in</a>
+          <a href="#competitions" class="btn btn--primary" data-magnetic>Enter now</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ===== HERO (asymmetric split) ===== -->
+      <section class="hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <span class="pill pill--live">
+              <span class="pill__dot"></span> 14 competitions live now
+            </span>
+            <h1 class="hero__title" data-splitting>Your dream prize, one ticket away.</h1>
+            <p class="hero__sub">
+              Win dream cars, cash and luxury prizes from £1.20. New draws every
+              week, real winners every time.
+            </p>
+
+            <div class="hero__cta">
+              <a href="#competitions" class="btn btn--primary btn--lg" data-magnetic>
+                Browse competitions
+              </a>
+              <a href="#how" class="btn btn--ghost btn--lg">See how it works</a>
+            </div>
+
+            <div class="hero__trust">
+              <div class="hero__rating">
+                <strong>Excellent</strong>
+                <span class="stars" aria-hidden="true">★★★★★</span>
+                <span>4.8 / 5 from 21,400+ players</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured prize card -->
+          <aside class="featured" aria-label="Featured competition">
+            <div class="featured__media">
+              <img
+                src="https://picsum.photos/seed/porsche911gt3sky/720/560"
+                alt="Porsche 911 GT3 finished in racing white"
+                loading="eager"
+                width="720"
+                height="560"
+              />
+              <span class="featured__tag">Headline draw</span>
+            </div>
+            <div class="featured__body">
+              <h2 class="featured__name">Porsche 911 GT3 + £10,000 cash</h2>
+              <p class="featured__meta">Cash alternative available · £92,500 value</p>
+
+              <div class="progress" data-progress="71">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><strong class="js-count" data-to="8842">0</strong> entries</span>
+                  <span>71% sold</span>
+                </div>
+              </div>
+
+              <div class="featured__foot">
+                <div class="countdown" data-countdown-hours="46" aria-label="Time remaining">
+                  <div class="countdown__unit"><b data-cd="h">00</b><span>hrs</span></div>
+                  <div class="countdown__sep">:</div>
+                  <div class="countdown__unit"><b data-cd="m">00</b><span>min</span></div>
+                  <div class="countdown__sep">:</div>
+                  <div class="countdown__unit"><b data-cd="s">00</b><span>sec</span></div>
+                </div>
+                <a href="#competitions" class="btn btn--primary" data-magnetic>
+                  Enter <span class="featured__price">£2.49</span>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ===== LIVE COMPETITIONS (card grid) ===== -->
+      <section class="comps" id="competitions">
+        <div class="section-head">
+          <h2 class="section-title" data-reveal>Live competitions</h2>
+          <p class="section-lead" data-reveal>
+            Pick your prize, grab your tickets, watch the draw live. Every winner
+            is real and announced on stream.
+          </p>
+        </div>
+
+        <div class="comps__grid">
+          <!-- card -->
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="https://picsum.photos/seed/rolexsubmariner/520/360" alt="Rolex Submariner watch" loading="lazy" />
+              <span class="card__ticket">£0.99 / ticket</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Rolex Submariner Date</h3>
+              <p class="card__meta">£13,200 value · or £11,000 cash</p>
+              <div class="progress" data-progress="58">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><b class="js-count" data-to="5210">0</b> sold</span>
+                  <span>3,790 left</span>
+                </div>
+              </div>
+              <div class="card__foot">
+                <span class="card__timer" data-countdown-hours="18">ends in 18h</span>
+                <a href="#" class="btn btn--primary btn--sm" data-magnetic>Enter</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="https://picsum.photos/seed/cashbundle25k/520/360" alt="Bundle of cash prize" loading="lazy" />
+              <span class="card__ticket">£1.20 / ticket</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">£25,000 Tax-Free Cash</h3>
+              <p class="card__meta">Straight to your bank in 48 hours</p>
+              <div class="progress" data-progress="83">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><b class="js-count" data-to="16600">0</b> sold</span>
+                  <span>3,400 left</span>
+                </div>
+              </div>
+              <div class="card__foot">
+                <span class="card__timer" data-countdown-hours="9">ends in 9h</span>
+                <a href="#" class="btn btn--primary btn--sm" data-magnetic>Enter</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="https://picsum.photos/seed/maldivesholiday/520/360" alt="Overwater villa holiday in the Maldives" loading="lazy" />
+              <span class="card__ticket">£1.49 / ticket</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Maldives Getaway for Two</h3>
+              <p class="card__meta">7 nights, overwater villa, flights included</p>
+              <div class="progress" data-progress="34">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><b class="js-count" data-to="2380">0</b> sold</span>
+                  <span>4,620 left</span>
+                </div>
+              </div>
+              <div class="card__foot">
+                <span class="card__timer" data-countdown-hours="63">ends in 2d</span>
+                <a href="#" class="btn btn--primary btn--sm" data-magnetic>Enter</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="https://picsum.photos/seed/macbookpro16tech/520/360" alt="MacBook Pro and tech bundle" loading="lazy" />
+              <span class="card__ticket">£0.79 / ticket</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Ultimate Apple Tech Bundle</h3>
+              <p class="card__meta">MacBook Pro, iPhone, Watch & AirPods</p>
+              <div class="progress" data-progress="92">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><b class="js-count" data-to="7360">0</b> sold</span>
+                  <span class="card__low">640 left</span>
+                </div>
+              </div>
+              <div class="card__foot">
+                <span class="card__timer" data-countdown-hours="5">ends in 5h</span>
+                <a href="#" class="btn btn--primary btn--sm" data-magnetic>Enter</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="https://picsum.photos/seed/landroverdefender90/520/360" alt="Land Rover Defender 90" loading="lazy" />
+              <span class="card__ticket">£2.99 / ticket</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Land Rover Defender 90</h3>
+              <p class="card__meta">£68,000 value · or £58,000 cash</p>
+              <div class="progress" data-progress="47">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><b class="js-count" data-to="9870">0</b> sold</span>
+                  <span>11,130 left</span>
+                </div>
+              </div>
+              <div class="card__foot">
+                <span class="card__timer" data-countdown-hours="40">ends in 40h</span>
+                <a href="#" class="btn btn--primary btn--sm" data-magnetic>Enter</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-reveal>
+            <div class="card__media">
+              <img src="https://picsum.photos/seed/voucherbundle1k/520/360" alt="Stack of gift vouchers" loading="lazy" />
+              <span class="card__ticket">£0.50 / ticket</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">£2,000 Voucher Vault</h3>
+              <p class="card__meta">Amazon, John Lewis, Selfridges & more</p>
+              <div class="progress" data-progress="66">
+                <div class="progress__track"><span class="progress__fill"></span></div>
+                <div class="progress__labels">
+                  <span><b class="js-count" data-to="6620">0</b> sold</span>
+                  <span>3,380 left</span>
+                </div>
+              </div>
+              <div class="card__foot">
+                <span class="card__timer" data-countdown-hours="27">ends in 27h</span>
+                <a href="#" class="btn btn--primary btn--sm" data-magnetic>Enter</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== HOW IT WORKS (numbered stepper) ===== -->
+      <section class="how" id="how">
+        <div class="how__intro">
+          <h2 class="section-title" data-reveal>Win in three steps</h2>
+          <p class="section-lead" data-reveal>
+            No catch, no small print games. Buy in for pennies and the draw is
+            streamed live with a verified random pick.
+          </p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step__num">01</span>
+            <h3 class="step__title">Pick your prize</h3>
+            <p class="step__text">
+              Browse cars, cash and luxury draws. Answer one quick question to
+              qualify, free postal entry always available.
+            </p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">02</span>
+            <h3 class="step__title">Grab your tickets</h3>
+            <p class="step__text">
+              Secure your numbers from as little as 50p. Buy more to shorten the
+              odds, every draw has a capped ticket count.
+            </p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">03</span>
+            <h3 class="step__title">Watch the live draw</h3>
+            <p class="step__text">
+              We pull the winner on a live stream with a verified random draw.
+              Prizes paid or delivered within 48 hours.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ===== WINNERS (carousel) ===== -->
+      <section class="winners" id="winners">
+        <div class="section-head section-head--center">
+          <span class="pill pill--quiet" data-reveal>Real people. Real prizes.</span>
+          <h2 class="section-title" data-reveal>This month's winners</h2>
+        </div>
+
+        <div class="swiper winners__swiper">
+          <div class="swiper-wrapper">
+            <figure class="swiper-slide winner">
+              <img src="https://picsum.photos/seed/winnerleah/640/640" alt="Leah from Cardiff with her new car" loading="lazy" />
+              <figcaption class="winner__cap">
+                <h3>Leah M. · Cardiff</h3>
+                <p>Won a BMW M2 + £5,000</p>
+              </figcaption>
+            </figure>
+            <figure class="swiper-slide winner">
+              <img src="https://picsum.photos/seed/winnerdev/640/640" alt="Dev from Leicester holding a cheque" loading="lazy" />
+              <figcaption class="winner__cap">
+                <h3>Dev P. · Leicester</h3>
+                <p>Won £25,000 tax-free cash</p>
+              </figcaption>
+            </figure>
+            <figure class="swiper-slide winner">
+              <img src="https://picsum.photos/seed/winnergrace/640/640" alt="Grace from Glasgow with a holiday prize" loading="lazy" />
+              <figcaption class="winner__cap">
+                <h3>Grace O. · Glasgow</h3>
+                <p>Won the Maldives getaway</p>
+              </figcaption>
+            </figure>
+            <figure class="swiper-slide winner">
+              <img src="https://picsum.photos/seed/winnertom/640/640" alt="Tom from Bristol with a watch" loading="lazy" />
+              <figcaption class="winner__cap">
+                <h3>Tom R. · Bristol</h3>
+                <p>Won a Rolex Submariner</p>
+              </figcaption>
+            </figure>
+            <figure class="swiper-slide winner">
+              <img src="https://picsum.photos/seed/winneraisha/640/640" alt="Aisha from Manchester with tech bundle" loading="lazy" />
+              <figcaption class="winner__cap">
+                <h3>Aisha K. · Manchester</h3>
+                <p>Won the Apple tech bundle</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="winners__nav">
+            <button class="swiper-button-prev" aria-label="Previous winner"></button>
+            <button class="swiper-button-next" aria-label="Next winner"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STATS BAND ===== -->
+      <section class="stats">
+        <div class="stats__row">
+          <div class="stat" data-reveal>
+            <b class="stat__num js-count" data-to="4200000" data-prefix="£">0</b>
+            <span class="stat__label">Prizes given away</span>
+          </div>
+          <div class="stat" data-reveal>
+            <b class="stat__num js-count" data-to="18742">0</b>
+            <span class="stat__label">Winners paid out</span>
+          </div>
+          <div class="stat" data-reveal>
+            <b class="stat__num js-count" data-to="48" data-suffix="h">0</b>
+            <span class="stat__label">Avg. payout time</span>
+          </div>
+          <div class="stat" data-reveal>
+            <b class="stat__num js-count" data-to="14">0</b>
+            <span class="stat__label">Live draws right now</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA ===== -->
+      <section class="cta">
+        <div class="cta__inner">
+          <h2 class="cta__title" data-reveal>The next draw closes soon.</h2>
+          <p class="cta__sub" data-reveal>
+            Tickets from 50p. Free postal entry always available. Your win could
+            be one click away.
+          </p>
+          <a href="#competitions" class="btn btn--primary btn--lg" data-magnetic data-reveal>
+            Enter a competition
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#top" class="nav__logo">
+            <span class="nav__logo-mark">i4</span>
+            <span class="nav__logo-text">In&nbsp;4&nbsp;A&nbsp;Win</span>
+          </a>
+          <p>Cars, cash and luxury prizes for the price of a coffee. Play fair, win big.</p>
+        </div>
+        <nav class="footer__col" aria-label="Competitions">
+          <h4>Play</h4>
+          <a href="#competitions">All competitions</a>
+          <a href="#competitions">Cars</a>
+          <a href="#competitions">Cash draws</a>
+          <a href="#competitions">Tech & luxury</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <h4>Company</h4>
+          <a href="#winners">Past winners</a>
+          <a href="#how">How it works</a>
+          <a href="#">Free postal entry</a>
+          <a href="#">Contact</a>
+        </nav>
+        <nav class="footer__col" aria-label="Legal">
+          <h4>Legal</h4>
+          <a href="#">Terms & conditions</a>
+          <a href="#">Privacy policy</a>
+          <a href="#">Responsible play</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 In 4 A Win Ltd. Over 18s only. Please play responsibly.</p>
+        <p class="footer__rg">Need a break? Visit BeGambleAware.org</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

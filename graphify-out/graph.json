@@ -1,0 +1,827 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "in4awin_animation_system",
+        "label": "Scroll & Motion System",
+        "nodes": [
+          "in4awin_index_splitting_heading",
+          "in4awin_index_progress",
+          "in4awin_index_count_up",
+          "in4awin_index_magnetic_cta",
+          "in4awin_index_countdown"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
+      },
+      {
+        "id": "in4awin_raffle_flow",
+        "label": "Raffle Entry Journey",
+        "nodes": [
+          "in4awin_index_hero",
+          "in4awin_index_competitions_grid",
+          "in4awin_index_how_it_works",
+          "in4awin_index_winners"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.75,
+        "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "package.json",
+      "id": "package"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "name",
+      "id": "package_name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "version",
+      "id": "package_version"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "description",
+      "id": "package_description"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "scripts",
+      "id": "package_scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "dev",
+      "id": "package_scripts_dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "build",
+      "id": "package_scripts_build"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "preview",
+      "id": "package_scripts_preview"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "type",
+      "id": "package_type"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "devdependencies",
+      "id": "package_devdependencies"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "vite",
+      "id": "package_devdependencies_vite"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "dependencies",
+      "id": "package_dependencies"
+    },
+    {
+      "label": "gsap",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "gsap",
+      "id": "package_dependencies_gsap"
+    },
+    {
+      "label": "lenis",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "lenis",
+      "id": "package_dependencies_lenis"
+    },
+    {
+      "label": "splitting",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "splitting",
+      "id": "package_dependencies_splitting"
+    },
+    {
+      "label": "swiper",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "swiper",
+      "id": "package_dependencies_swiper"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_main",
+      "community": 4,
+      "norm_label": "main.js"
+    },
+    {
+      "label": "revealEls",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "src_main_revealels",
+      "community": 4,
+      "norm_label": "revealels"
+    },
+    {
+      "label": "formatNumber()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "src_main_formatnumber",
+      "community": 4,
+      "norm_label": "formatnumber()"
+    },
+    {
+      "label": "startCountdowns()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "src_main_startcountdowns",
+      "community": 4,
+      "norm_label": "startcountdowns()"
+    },
+    {
+      "label": "nav",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L199",
+      "_origin": "ast",
+      "id": "src_main_nav",
+      "community": 4,
+      "norm_label": "nav"
+    },
+    {
+      "label": "Sticky Navigation",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "header.nav",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_nav",
+      "community": 2,
+      "norm_label": "sticky navigation"
+    },
+    {
+      "label": "Hero Section",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "section.hero",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_hero",
+      "community": 0,
+      "norm_label": "hero section"
+    },
+    {
+      "label": "Featured Competition (Porsche 911 GT3)",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "aside.featured",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_featured_comp",
+      "community": 0,
+      "norm_label": "featured competition (porsche 911 gt3)"
+    },
+    {
+      "label": "Live Competitions Grid",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "section#competitions",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_competitions_grid",
+      "community": 2,
+      "norm_label": "live competitions grid"
+    },
+    {
+      "label": "Competition Card",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": "article.card",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_competition_card",
+      "community": 2,
+      "norm_label": "competition card"
+    },
+    {
+      "label": "How It Works Stepper",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "section#how",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_how_it_works",
+      "community": 2,
+      "norm_label": "how it works stepper"
+    },
+    {
+      "label": "Winners Carousel",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "section#winners",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_winners",
+      "community": 2,
+      "norm_label": "winners carousel"
+    },
+    {
+      "label": "Stats Band",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "section.stats",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_stats",
+      "community": 0,
+      "norm_label": "stats band"
+    },
+    {
+      "label": "Closing CTA",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "section.cta",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_cta",
+      "community": 0,
+      "norm_label": "closing cta"
+    },
+    {
+      "label": "Footer",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "footer.footer",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_footer",
+      "community": 6,
+      "norm_label": "footer"
+    },
+    {
+      "label": "Countdown Timer",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": "[data-countdown-hours]",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_countdown",
+      "community": 0,
+      "norm_label": "countdown timer"
+    },
+    {
+      "label": "Ticket Progress Bar",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".progress[data-progress]",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_progress",
+      "community": 2,
+      "norm_label": "ticket progress bar"
+    },
+    {
+      "label": "Magnetic CTA Button",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": "[data-magnetic]",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_magnetic_cta",
+      "community": 0,
+      "norm_label": "magnetic cta button"
+    },
+    {
+      "label": "Splitting.js Hero Heading",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": "h1[data-splitting]",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_splitting_heading",
+      "community": 0,
+      "norm_label": "splitting.js hero heading"
+    },
+    {
+      "label": "Animated Count-Up Stats",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".js-count",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_count_up",
+      "community": 0,
+      "norm_label": "animated count-up stats"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_dependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_devdependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_scripts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_type"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package",
+      "target": "package_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_dev"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_preview"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vite"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_gsap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_lenis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_splitting"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_swiper"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_formatnumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_nav",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_revealels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_startcountdowns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "a[href='#competitions']",
+      "weight": 1.0,
+      "source": "in4awin_index_nav",
+      "target": "in4awin_index_competitions_grid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "a[href='#how']",
+      "weight": 1.0,
+      "source": "in4awin_index_nav",
+      "target": "in4awin_index_how_it_works"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_nav",
+      "target": "in4awin_index_magnetic_cta"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "a[href='#winners']",
+      "weight": 1.0,
+      "source": "in4awin_index_nav",
+      "target": "in4awin_index_winners"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "section.hero aside.featured",
+      "weight": 1.0,
+      "source": "in4awin_index_hero",
+      "target": "in4awin_index_featured_comp"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "h1[data-splitting]",
+      "weight": 1.0,
+      "source": "in4awin_index_hero",
+      "target": "in4awin_index_splitting_heading"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_featured_comp",
+      "target": "in4awin_index_count_up"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_featured_comp",
+      "target": "in4awin_index_countdown"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_featured_comp",
+      "target": "in4awin_index_magnetic_cta"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_featured_comp",
+      "target": "in4awin_index_progress"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": ".comps__grid",
+      "weight": 1.0,
+      "source": "in4awin_index_competitions_grid",
+      "target": "in4awin_index_competition_card"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_competition_card",
+      "target": "in4awin_index_countdown"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_competition_card",
+      "target": "in4awin_index_progress"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_winners",
+      "target": "in4awin_index_competition_card"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": ".js-count",
+      "weight": 1.0,
+      "source": "in4awin_index_stats",
+      "target": "in4awin_index_count_up"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_cta",
+      "target": "in4awin_index_magnetic_cta"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "in4awin_animation_system",
+      "label": "Scroll & Motion System",
+      "nodes": [
+        "in4awin_index_splitting_heading",
+        "in4awin_index_progress",
+        "in4awin_index_count_up",
+        "in4awin_index_magnetic_cta",
+        "in4awin_index_countdown"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
+    },
+    {
+      "id": "in4awin_raffle_flow",
+      "label": "Raffle Entry Journey",
+      "nodes": [
+        "in4awin_index_hero",
+        "in4awin_index_competitions_grid",
+        "in4awin_index_how_it_works",
+        "in4awin_index_winners"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
+    }
+  ]
+}

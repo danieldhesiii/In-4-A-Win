@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# graphify intermediates (keep graph.json, GRAPH_REPORT.md, graph.html)
+graphify-out/.graphify_*
+graphify-out/cost.json
+graphify-out/cache/
+graphify-out/manifest.json
+
+# macOS
+.DS_Store
+
+# logs
+*.log
+npm-debug.log*
