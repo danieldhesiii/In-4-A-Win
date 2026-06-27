@@ -19,17 +19,18 @@
         "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
       },
       {
-        "id": "in4awin_raffle_flow",
-        "label": "Raffle Entry Journey",
+        "id": "in4awin_skill_competition_flow",
+        "label": "Game-of-Skill Entry Flow",
         "nodes": [
-          "in4awin_index_hero",
-          "in4awin_index_competitions_grid",
-          "in4awin_index_how_it_works",
+          "in4awin_index_competition_card",
+          "in4awin_index_skill_modal",
+          "in4awin_index_game_of_skill",
+          "in4awin_index_free_postal_entry",
           "in4awin_index_winners"
         ],
         "relation": "form",
         "confidence": "INFERRED",
-        "confidence_score": 0.75,
+        "confidence_score": 0.85,
         "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
       }
     ]
@@ -41,7 +42,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "package.json",
       "id": "package"
     },
@@ -51,7 +52,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "name",
       "id": "package_name"
     },
@@ -61,7 +62,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "version",
       "id": "package_version"
     },
@@ -71,7 +72,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "description",
       "id": "package_description"
     },
@@ -121,7 +122,7 @@
       "source_file": "package.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "type",
       "id": "package_type"
     },
@@ -131,7 +132,7 @@
       "source_file": "package.json",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "devdependencies",
       "id": "package_devdependencies"
     },
@@ -141,7 +142,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 1,
+      "community": 3,
       "norm_label": "vite",
       "id": "package_devdependencies_vite"
     },
@@ -151,7 +152,7 @@
       "source_file": "package.json",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "norm_label": "dependencies",
       "id": "package_dependencies"
     },
@@ -161,7 +162,7 @@
       "source_file": "package.json",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "norm_label": "gsap",
       "id": "package_dependencies_gsap"
     },
@@ -171,7 +172,7 @@
       "source_file": "package.json",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "norm_label": "lenis",
       "id": "package_dependencies_lenis"
     },
@@ -181,7 +182,7 @@
       "source_file": "package.json",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "norm_label": "splitting",
       "id": "package_dependencies_splitting"
     },
@@ -191,7 +192,7 @@
       "source_file": "package.json",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 3,
+      "community": 4,
       "norm_label": "swiper",
       "id": "package_dependencies_swiper"
     },
@@ -202,48 +203,128 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 4,
+      "community": 0,
       "norm_label": "main.js"
     },
     {
       "label": "revealEls",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L59",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "src_main_revealels",
-      "community": 4,
+      "community": 0,
       "norm_label": "revealels"
     },
     {
       "label": "formatNumber()",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L96",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "src_main_formatnumber",
-      "community": 4,
+      "community": 0,
       "norm_label": "formatnumber()"
     },
     {
       "label": "startCountdowns()",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L128",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "src_main_startcountdowns",
-      "community": 4,
+      "community": 0,
       "norm_label": "startcountdowns()"
+    },
+    {
+      "label": "winnersSwiper",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L161",
+      "_origin": "ast",
+      "id": "src_main_winnersswiper",
+      "community": 0,
+      "norm_label": "winnersswiper"
+    },
+    {
+      "label": "winNext",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L181",
+      "_origin": "ast",
+      "id": "src_main_winnext",
+      "community": 0,
+      "norm_label": "winnext"
+    },
+    {
+      "label": "winPrev",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L182",
+      "_origin": "ast",
+      "id": "src_main_winprev",
+      "community": 0,
+      "norm_label": "winprev"
     },
     {
       "label": "nav",
       "file_type": "code",
       "source_file": "src/main.js",
-      "source_location": "L199",
+      "source_location": "L189",
       "_origin": "ast",
       "id": "src_main_nav",
-      "community": 4,
+      "community": 0,
       "norm_label": "nav"
+    },
+    {
+      "label": "QUESTIONS",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L219",
+      "_origin": "ast",
+      "id": "src_main_questions",
+      "community": 0,
+      "norm_label": "questions"
+    },
+    {
+      "label": "modal",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L232",
+      "_origin": "ast",
+      "id": "src_main_modal",
+      "community": 0,
+      "norm_label": "modal"
+    },
+    {
+      "label": "pickQuestion()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L247",
+      "_origin": "ast",
+      "id": "src_main_pickquestion",
+      "community": 6,
+      "norm_label": "pickquestion()"
+    },
+    {
+      "label": "openModal()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L278",
+      "_origin": "ast",
+      "id": "src_main_openmodal",
+      "community": 6,
+      "norm_label": "openmodal()"
+    },
+    {
+      "label": "closeModal()",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L292",
+      "_origin": "ast",
+      "id": "src_main_closemodal",
+      "community": 0,
+      "norm_label": "closemodal()"
     },
     {
       "label": "Sticky Navigation",
@@ -255,7 +336,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_nav",
-      "community": 2,
+      "community": 1,
       "norm_label": "sticky navigation"
     },
     {
@@ -268,11 +349,11 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_hero",
-      "community": 0,
+      "community": 2,
       "norm_label": "hero section"
     },
     {
-      "label": "Featured Competition (Porsche 911 GT3)",
+      "label": "Featured Competition (Porsche 911 GT3 RS)",
       "file_type": "document",
       "source_file": "index.html",
       "source_location": "aside.featured",
@@ -281,8 +362,8 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_featured_comp",
-      "community": 0,
-      "norm_label": "featured competition (porsche 911 gt3)"
+      "community": 2,
+      "norm_label": "featured competition (porsche 911 gt3 rs)"
     },
     {
       "label": "Live Competitions Grid",
@@ -294,7 +375,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_competitions_grid",
-      "community": 2,
+      "community": 1,
       "norm_label": "live competitions grid"
     },
     {
@@ -307,7 +388,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_competition_card",
-      "community": 2,
+      "community": 1,
       "norm_label": "competition card"
     },
     {
@@ -320,11 +401,11 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_how_it_works",
-      "community": 2,
+      "community": 1,
       "norm_label": "how it works stepper"
     },
     {
-      "label": "Winners Carousel",
+      "label": "Winners Carousel (continuous loop)",
       "file_type": "document",
       "source_file": "index.html",
       "source_location": "section#winners",
@@ -333,8 +414,8 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_winners",
-      "community": 2,
-      "norm_label": "winners carousel"
+      "community": 1,
+      "norm_label": "winners carousel (continuous loop)"
     },
     {
       "label": "Stats Band",
@@ -346,7 +427,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_stats",
-      "community": 0,
+      "community": 2,
       "norm_label": "stats band"
     },
     {
@@ -359,7 +440,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_cta",
-      "community": 0,
+      "community": 1,
       "norm_label": "closing cta"
     },
     {
@@ -372,7 +453,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_footer",
-      "community": 6,
+      "community": 7,
       "norm_label": "footer"
     },
     {
@@ -385,7 +466,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_countdown",
-      "community": 0,
+      "community": 2,
       "norm_label": "countdown timer"
     },
     {
@@ -411,7 +492,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_magnetic_cta",
-      "community": 0,
+      "community": 8,
       "norm_label": "magnetic cta button"
     },
     {
@@ -424,7 +505,7 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_splitting_heading",
-      "community": 0,
+      "community": 2,
       "norm_label": "splitting.js hero heading"
     },
     {
@@ -437,8 +518,60 @@
       "author": null,
       "contributor": null,
       "id": "in4awin_index_count_up",
-      "community": 0,
+      "community": 2,
       "norm_label": "animated count-up stats"
+    },
+    {
+      "label": "Skill-Question Entry Modal",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "#entryModal",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_skill_modal",
+      "community": 1,
+      "norm_label": "skill-question entry modal"
+    },
+    {
+      "label": "Game of Skill Mechanic",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": "#quizForm",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_game_of_skill",
+      "community": 1,
+      "norm_label": "game of skill mechanic"
+    },
+    {
+      "label": "Free Postal Entry Route",
+      "file_type": "concept",
+      "source_file": "index.html",
+      "source_location": ".quiz__free",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "in4awin_index_free_postal_entry",
+      "community": 1,
+      "norm_label": "free postal entry route"
+    },
+    {
+      "label": "Project README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_readme_overview",
+      "community": 1,
+      "norm_label": "project readme"
     }
   ],
   "links": [
@@ -596,7 +729,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L96",
+      "source_location": "L292",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_closemodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L94",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_formatnumber",
@@ -606,7 +749,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L199",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_modal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L189",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_nav",
@@ -616,7 +769,37 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L59",
+      "source_location": "L278",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_openmodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L247",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_pickquestion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_questions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L57",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_revealels",
@@ -626,10 +809,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main.js",
-      "source_location": "L128",
+      "source_location": "L126",
       "weight": 1.0,
       "source": "src_main",
       "target": "src_main_startcountdowns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_winnersswiper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_winnext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_main_winprev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L281",
+      "weight": 1.0,
+      "source": "src_main_openmodal",
+      "target": "src_main_pickquestion",
       "confidence_score": 1.0
     },
     {
@@ -637,7 +861,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
-      "source_location": "a[href='#competitions']",
+      "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_nav",
       "target": "in4awin_index_competitions_grid"
@@ -647,7 +871,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
-      "source_location": "a[href='#how']",
+      "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_nav",
       "target": "in4awin_index_how_it_works"
@@ -660,16 +884,6 @@
       "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_nav",
-      "target": "in4awin_index_magnetic_cta"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": "a[href='#winners']",
-      "weight": 1.0,
-      "source": "in4awin_index_nav",
       "target": "in4awin_index_winners"
     },
     {
@@ -677,7 +891,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
-      "source_location": "section.hero aside.featured",
+      "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_hero",
       "target": "in4awin_index_featured_comp"
@@ -687,7 +901,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
-      "source_location": "h1[data-splitting]",
+      "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_hero",
       "target": "in4awin_index_splitting_heading"
@@ -720,16 +934,6 @@
       "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_featured_comp",
-      "target": "in4awin_index_magnetic_cta"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "index.html",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "in4awin_index_featured_comp",
       "target": "in4awin_index_progress"
     },
     {
@@ -737,7 +941,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
-      "source_location": ".comps__grid",
+      "source_location": "[data-enter]",
+      "weight": 1.0,
+      "source": "in4awin_index_featured_comp",
+      "target": "in4awin_index_skill_modal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_competitions_grid",
       "target": "in4awin_index_competition_card"
@@ -763,6 +977,16 @@
       "target": "in4awin_index_progress"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "[data-enter]",
+      "weight": 1.0,
+      "source": "in4awin_index_competition_card",
+      "target": "in4awin_index_skill_modal"
+    },
+    {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
       "confidence_score": 0.65,
@@ -773,11 +997,21 @@
       "target": "in4awin_index_competition_card"
     },
     {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_how_it_works",
+      "target": "in4awin_index_game_of_skill"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "index.html",
-      "source_location": ".js-count",
+      "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_stats",
       "target": "in4awin_index_count_up"
@@ -790,7 +1024,37 @@
       "source_location": null,
       "weight": 1.0,
       "source": "in4awin_index_cta",
-      "target": "in4awin_index_magnetic_cta"
+      "target": "in4awin_index_game_of_skill"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_skill_modal",
+      "target": "in4awin_index_free_postal_entry"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "in4awin_index_skill_modal",
+      "target": "in4awin_index_game_of_skill"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_readme_overview",
+      "target": "in4awin_index_game_of_skill"
     }
   ],
   "hyperedges": [
@@ -810,18 +1074,20 @@
       "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
     },
     {
-      "id": "in4awin_raffle_flow",
-      "label": "Raffle Entry Journey",
+      "id": "in4awin_skill_competition_flow",
+      "label": "Game-of-Skill Entry Flow",
       "nodes": [
-        "in4awin_index_hero",
-        "in4awin_index_competitions_grid",
-        "in4awin_index_how_it_works",
+        "in4awin_index_competition_card",
+        "in4awin_index_skill_modal",
+        "in4awin_index_game_of_skill",
+        "in4awin_index_free_postal_entry",
         "in4awin_index_winners"
       ],
       "relation": "form",
       "confidence": "INFERRED",
-      "confidence_score": 0.75,
+      "confidence_score": 0.85,
       "source_file": "/Users/kamil/Library/Mobile Documents/com~apple~CloudDocs/Downloads/in4awin/index.html"
     }
-  ]
+  ],
+  "built_at_commit": "ef9a02b94d19cd290b1e4c226dfce3baa435d9e0"
 }
