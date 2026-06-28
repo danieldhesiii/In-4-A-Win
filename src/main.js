@@ -264,8 +264,9 @@ function renderCompetition(id) {
     qtyPlural.textContent = qty === 1 ? '' : 's'
     totalCost.textContent = gbp(c.price * qty)
 
-    // odds: your chance = your tickets / total tickets in the draw
-    const oneIn = Math.max(1, Math.round(c.total / qty))
+    // odds: your chance = your tickets / everyone entered so far (incl. your own)
+    const entrants = c.sold + qty
+    const oneIn = Math.max(1, Math.round(entrants / qty))
     oddsValue.textContent = '1 in ' + oneIn.toLocaleString('en-GB')
     oddsBoost.textContent =
       qty === 1 ? 'Single entry' : qty.toLocaleString('en-GB') + '× the odds of one ticket'
