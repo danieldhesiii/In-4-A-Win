@@ -1116,6 +1116,65 @@ a {
   border-color: var(--accent);
   color: #241a06;
 }
+.tickets__custom {
+  flex: 1 1 96px;
+  min-width: 96px;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-input);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: border-color 0.25s var(--ease);
+}
+.tickets__custom::placeholder {
+  color: var(--text-3);
+  font-weight: 500;
+}
+.tickets__custom:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* live odds readout */
+.odds {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-input);
+  background: var(--bg);
+}
+.odds__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+}
+.odds__value {
+  font-family: "Clash Display", sans-serif;
+  font-weight: 500;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  margin-top: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+.odds__boost {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--r-pill);
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
 .entry__total {
   display: flex;
   align-items: baseline;

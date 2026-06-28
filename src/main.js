@@ -208,10 +208,20 @@ function renderCompetition(id) {
 
           <div class="entry__label">1 / Choose your tickets</div>
           <div class="tickets" id="ticketRow">
-            ${TICKET_OPTIONS.map((n, i) => `<button type="button" class="tickets__opt${i === 0 ? ' is-active' : ''}" data-qty="${n}">${n}</button>`).join('')}
+            ${TICKET_OPTIONS.map((n) => `<button type="button" class="tickets__opt" data-qty="${n}">${n}</button>`).join('')}
+            <input type="number" class="tickets__custom" id="customQty" min="1" max="${c.total - c.sold}" inputmode="numeric" placeholder="Custom" aria-label="Custom number of tickets" />
           </div>
+
+          <div class="odds" id="oddsBox">
+            <div>
+              <div class="odds__label">Your chance to win</div>
+              <div class="odds__value" id="oddsValue"></div>
+            </div>
+            <div class="odds__boost" id="oddsBoost"></div>
+          </div>
+
           <div class="entry__total">
-            <span>Total for <b id="qtyLabel">1</b> ticket(s)</span>
+            <span>Total for <b id="qtyLabel">1</b> ticket<span id="qtyPlural"></span></span>
             <b id="totalCost">${gbp(c.price)}</b>
           </div>
 
@@ -236,16 +246,50 @@ function renderCompetition(id) {
 
   let qty = 1
   let selected = -1
+  const maxTickets = c.total - c.sold
   const qtyLabel = compView.querySelector('#qtyLabel')
+  const qtyPlural = compView.querySelector('#qtyPlural')
   const totalCost = compView.querySelector('#totalCost')
-  compView.querySelectorAll('.tickets__opt').forEach((b) => {
+  const oddsValue = compView.querySelector('#oddsValue')
+  const oddsBoost = compView.querySelector('#oddsBoost')
+  const customInput = compView.querySelector('#customQty')
+  const presets = [...compView.querySelectorAll('.tickets__opt')]
+
+  function setQty(n, fromInput) {
+    n = Math.floor(Number(n) || 0)
+    if (n < 1) n = 1
+    if (n > maxTickets) n = maxTickets
+    qty = n
+    qtyLabel.textContent = qty.toLocaleString('en-GB')
+    qtyPlural.textContent = qty === 1 ? '' : 's'
+    totalCost.textContent = gbp(c.price * qty)
+
+    // odds: your chance = your tickets / total tickets in the draw
+    const oneIn = Math.max(1, Math.round(c.total / qty))
+    oddsValue.textContent = '1 in ' + oneIn.toLocaleString('en-GB')
+    oddsBoost.textContent =
+      qty === 1 ? 'Single entry' : qty.toLocaleString('en-GB') + '× the odds of one ticket'
+
+    const matchedPreset = presets.find((b) => Number(b.dataset.qty) === qty)
+    presets.forEach((b) => b.classList.toggle('is-active', b === matchedPreset))
+    if (!fromInput) customInput.value = matchedPreset ? '' : qty
+  }
+
+  presets.forEach((b) =>
     b.addEventListener('click', () => {
-      qty = Number(b.dataset.qty)
-      compView.querySelectorAll('.tickets__opt').forEach((o) => o.classList.toggle('is-active', o === b))
-      qtyLabel.textContent = qty
-      totalCost.textContent = gbp(c.price * qty)
+      customInput.value = ''
+      setQty(Number(b.dataset.qty))
     })
+  )
+  customInput.addEventListener('input', () => {
+    if (customInput.value.trim() === '') return
+    setQty(customInput.value, true)
   })
+  customInput.addEventListener('blur', () => {
+    if (customInput.value.trim() === '') return
+    customInput.value = qty // reflect the clamped value
+  })
+  setQty(1)
 
   const feedback = compView.querySelector('#entryFeedback')
   const opts = compView.querySelectorAll('.skillq__opt')
