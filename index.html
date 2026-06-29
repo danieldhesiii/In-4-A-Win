@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="In 4 A Win - win dream cars, cash and luxury prizes from £1.20. A game of skill, new draws every week. Real winners, every time." />
+    <meta name="theme-color" content="#100f0c" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <title>In 4 A Win - Win cars, cash & luxury for the price of a coffee</title>
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link rel="preconnect" href="https://commons.wikimedia.org" crossorigin />
@@ -27,12 +29,19 @@
         <nav class="nav__links" aria-label="Primary">
           <a href="#competitions">Competitions</a>
           <a href="#winners-all" data-winners-page>Winners</a>
+          <a href="#pass">Pass</a>
           <a href="#trust">Trust</a>
           <a href="#how">How it works</a>
         </nav>
         <div class="nav__actions">
-          <a href="#" class="btn btn--ghost btn--sm">Sign in</a>
-          <a href="#competitions" class="btn btn--primary btn--sm">Enter now</a>
+          <button class="btn btn--ghost btn--sm" data-account type="button">Sign in</button>
+          <button class="nav__basket" id="basketBtn" data-basket type="button" aria-label="View basket">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z" />
+              <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+            </svg>
+            <span class="nav__basket-count" id="basketCount" hidden>0</span>
+          </button>
         </div>
       </div>
     </header>
@@ -70,7 +79,7 @@
           <article class="featured" data-comp="porsche" tabindex="0" role="link" aria-label="Open Porsche 911 GT3 RS competition">
             <div class="featured__media">
               <img
-                src="https://commons.wikimedia.org/wiki/Special:FilePath/Porsche%20911%20GT3%20RS%20%282022%29%201X7A7164.jpg?width=1000"
+                src="/img/porsche.jpg"
                 alt="Porsche 911 GT3 RS sports car"
                 loading="eager"
                 width="1000"
@@ -115,139 +124,19 @@
           </p>
         </div>
 
-        <div class="comps__grid">
-          <article class="card" data-comp="rolex" data-reveal tabindex="0" role="link" aria-label="Open Rolex Submariner competition">
-            <div class="card__media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rolex-Submariner.jpg?width=800" alt="Rolex Submariner watch" loading="lazy" />
-              <span class="card__ticket">£0.99 / ticket</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title">Rolex Submariner Date</h3>
-              <p class="card__meta">£13,200 value · or £11,000 cash</p>
-              <div class="progress" data-progress="58">
-                <div class="progress__track"><span class="progress__fill"></span></div>
-                <div class="progress__labels">
-                  <span><b class="js-count" data-to="5210">0</b> sold</span>
-                  <span>3,790 left</span>
-                </div>
-              </div>
-              <div class="card__foot">
-                <span class="card__timer" data-countdown-hours="18">ends in 18h</span>
-                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-comp="cash25k" data-reveal tabindex="0" role="link" aria-label="Open £25,000 cash competition">
-            <div class="card__media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/White-note-50-pounds.jpg?width=800" alt="British banknote, cash prize" loading="lazy" />
-              <span class="card__ticket">£1.20 / ticket</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title">£25,000 Tax-Free Cash</h3>
-              <p class="card__meta">Straight to your bank in 48 hours</p>
-              <div class="progress" data-progress="83">
-                <div class="progress__track"><span class="progress__fill"></span></div>
-                <div class="progress__labels">
-                  <span><b class="js-count" data-to="16600">0</b> sold</span>
-                  <span>3,400 left</span>
-                </div>
-              </div>
-              <div class="card__foot">
-                <span class="card__timer" data-countdown-hours="9">ends in 9h</span>
-                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-comp="maldives" data-reveal tabindex="0" role="link" aria-label="Open Maldives getaway competition">
-            <div class="card__media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/MaldivesBungalows.jpg?width=800" alt="Overwater villas in the Maldives" loading="lazy" />
-              <span class="card__ticket">£1.49 / ticket</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title">Maldives Getaway for Two</h3>
-              <p class="card__meta">7 nights, overwater villa, flights included</p>
-              <div class="progress" data-progress="34">
-                <div class="progress__track"><span class="progress__fill"></span></div>
-                <div class="progress__labels">
-                  <span><b class="js-count" data-to="2380">0</b> sold</span>
-                  <span>4,620 left</span>
-                </div>
-              </div>
-              <div class="card__foot">
-                <span class="card__timer" data-countdown-hours="63">ends in 2d</span>
-                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-comp="apple" data-reveal tabindex="0" role="link" aria-label="Open Apple tech bundle competition">
-            <div class="card__media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apple%20MacBook%20Pro%2016%22%20M2%20Max.jpg?width=800" alt="Apple MacBook Pro 16-inch" loading="lazy" />
-              <span class="card__ticket">£0.79 / ticket</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title">Ultimate Apple Tech Bundle</h3>
-              <p class="card__meta">MacBook Pro, iPhone, Watch & AirPods</p>
-              <div class="progress" data-progress="92">
-                <div class="progress__track"><span class="progress__fill"></span></div>
-                <div class="progress__labels">
-                  <span><b class="js-count" data-to="7360">0</b> sold</span>
-                  <span class="card__low">640 left</span>
-                </div>
-              </div>
-              <div class="card__foot">
-                <span class="card__timer" data-countdown-hours="5">ends in 5h</span>
-                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-comp="defender" data-reveal tabindex="0" role="link" aria-label="Open Land Rover Defender competition">
-            <div class="card__media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Land%20Rover%20Defender%2090%20%28L663%29%20IMG%209441.jpg?width=800" alt="Land Rover Defender 90" loading="lazy" />
-              <span class="card__ticket">£2.99 / ticket</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title">Land Rover Defender 90</h3>
-              <p class="card__meta">£68,000 value · or £58,000 cash</p>
-              <div class="progress" data-progress="47">
-                <div class="progress__track"><span class="progress__fill"></span></div>
-                <div class="progress__labels">
-                  <span><b class="js-count" data-to="9870">0</b> sold</span>
-                  <span>11,130 left</span>
-                </div>
-              </div>
-              <div class="card__foot">
-                <span class="card__timer" data-countdown-hours="40">ends in 40h</span>
-                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card" data-comp="vouchers" data-reveal tabindex="0" role="link" aria-label="Open voucher vault competition">
-            <div class="card__media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gift%20card%20assortment.jpg?width=800" alt="Assortment of gift cards and vouchers" loading="lazy" />
-              <span class="card__ticket">£0.50 / ticket</span>
-            </div>
-            <div class="card__body">
-              <h3 class="card__title">£2,000 Voucher Vault</h3>
-              <p class="card__meta">Amazon, John Lewis, Selfridges & more</p>
-              <div class="progress" data-progress="66">
-                <div class="progress__track"><span class="progress__fill"></span></div>
-                <div class="progress__labels">
-                  <span><b class="js-count" data-to="6620">0</b> sold</span>
-                  <span>3,380 left</span>
-                </div>
-              </div>
-              <div class="card__foot">
-                <span class="card__timer" data-countdown-hours="27">ends in 27h</span>
-                <span class="card__cta">Enter <span aria-hidden="true">&rarr;</span></span>
-              </div>
-            </div>
-          </article>
+        <div class="comps__filter" id="compFilter">
+          <div class="comps__cats" id="compCats"></div>
+          <label class="comps__sort">
+            <span>Sort</span>
+            <select id="compSort" aria-label="Sort competitions">
+              <option value="ending">Ending soonest</option>
+              <option value="popular">Most popular</option>
+              <option value="priceup">Price: low to high</option>
+              <option value="pricedown">Price: high to low</option>
+            </select>
+          </label>
         </div>
+        <div class="comps__grid" id="compGrid"></div>
       </section>
 
       <!-- ===== HOW IT WORKS ===== -->
@@ -299,14 +188,14 @@
         <div class="swiper winners__swiper">
           <div class="swiper-wrapper">
             <figure class="swiper-slide winner">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/BMW%20G87%20M2%201X7A6997.jpg?width=640" alt="BMW M2 coupe" loading="lazy" />
+              <img src="/img/bmw-m2.jpg" alt="BMW M2 coupe" loading="lazy" />
               <figcaption class="winner__cap">
                 <h3>Leah M. · Cardiff</h3>
                 <p>Won a BMW M2 + £5,000</p>
               </figcaption>
             </figure>
             <figure class="swiper-slide winner">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/White-note-50-pounds.jpg?width=640" alt="Cash prize" loading="lazy" />
+              <img src="/img/cash.jpg" alt="Cash prize" loading="lazy" />
               <figcaption class="winner__cap">
                 <h3>Dev P. · Leicester</h3>
                 <p>Won £25,000 tax-free cash</p>
@@ -320,7 +209,7 @@
               </figcaption>
             </figure>
             <figure class="swiper-slide winner">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rolex-Submariner.jpg?width=640" alt="Rolex Submariner watch" loading="lazy" />
+              <img src="/img/rolex.jpg" alt="Rolex Submariner watch" loading="lazy" />
               <figcaption class="winner__cap">
                 <h3>Tom R. · Bristol</h3>
                 <p>Won a Rolex Submariner</p>
@@ -439,6 +328,44 @@
         </div>
       </section>
 
+      <!-- ===== CHARITY BAND ===== -->
+      <section class="charity">
+        <div class="charity__inner">
+          <p class="charity__lead">We give <b>5%</b> of every entry to UK charities.</p>
+          <p class="charity__num">
+            <b class="js-count" data-to="214860" data-prefix="£">0</b>
+            <span>donated so far</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== PASS ===== -->
+      <section class="pass" id="pass">
+        <div class="pass__inner">
+          <div class="pass__copy">
+            <span class="eyebrow" data-reveal>In 4 A Win Pass</span>
+            <h2 class="section-title" data-reveal>One pass, every weekly draw.</h2>
+            <p class="section-lead" data-reveal>
+              Auto-enter every weekly cash draw, skip the skill question each time,
+              and unlock members-only instant wins. Cancel whenever you like.
+            </p>
+            <ul class="pass__perks" data-reveal>
+              <li>Automatic entry into all weekly cash draws</li>
+              <li>Over 200 entries every month</li>
+              <li>Members-only instant wins and bonus odds</li>
+              <li>5% of your pass goes to charity</li>
+            </ul>
+          </div>
+          <div class="pass__card" data-reveal>
+            <span class="pass__badge">Most popular</span>
+            <div class="pass__price"><b>£9.99</b><span>/ month</span></div>
+            <p class="pass__sub">Billed monthly. Over 18s only.</p>
+            <button class="btn btn--accent btn--lg" data-add-pass type="button">Get the Pass</button>
+            <p class="pass__fine">Cancel anytime in your account. A game of skill.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- ===== CTA ===== -->
       <section class="cta">
         <div class="cta__inner">
@@ -463,31 +390,43 @@
             <span class="nav__logo-text">In&nbsp;4&nbsp;A&nbsp;Win</span>
           </a>
           <p>Cars, cash and luxury prizes for the price of a coffee. A game of skill, play fair, win big.</p>
+          <form class="footer__remind" id="remindForm">
+            <label for="remindEmail">Get draw reminders</label>
+            <div class="footer__remind-row">
+              <input type="email" id="remindEmail" placeholder="you@email.com" aria-label="Email for draw reminders" required />
+              <button class="btn btn--accent btn--sm" type="submit">Notify me</button>
+            </div>
+            <p class="footer__remind-msg" id="remindMsg" role="status"></p>
+          </form>
         </div>
         <nav class="footer__col" aria-label="Competitions">
           <h4>Play</h4>
           <a href="#competitions">All competitions</a>
-          <a href="#competitions">Cars</a>
-          <a href="#competitions">Cash draws</a>
-          <a href="#competitions">Tech & luxury</a>
+          <a href="#winners-all" data-winners-page>Past winners</a>
+          <a href="#pass">In 4 A Win Pass</a>
+          <a href="#" data-faq>Instant wins</a>
         </nav>
         <nav class="footer__col" aria-label="Company">
           <h4>Company</h4>
-          <a href="#winners">Past winners</a>
           <a href="#how">How it works</a>
-          <a href="#">Free postal entry</a>
-          <a href="#">Contact</a>
+          <a href="#" data-faq>FAQ</a>
+          <a href="#" data-postal>Free postal entry</a>
+          <a href="#" data-account>My account</a>
         </nav>
         <nav class="footer__col" aria-label="Legal">
-          <h4>Legal</h4>
-          <a href="#">Terms & conditions</a>
-          <a href="#">Privacy policy</a>
-          <a href="#">Skill question rules</a>
+          <h4>Legal &amp; safety</h4>
+          <a href="#" data-responsible>Responsible play</a>
+          <a href="#" data-faq>Terms &amp; conditions</a>
+          <a href="#" data-faq>Privacy policy</a>
         </nav>
       </div>
       <div class="footer__bottom">
         <p>© 2026 In 4 A Win Ltd. Over 18s only. Prize competitions decided by skill.</p>
-        <p class="footer__rg">Free postal entry route always available. Please play responsibly.</p>
+        <p class="footer__rg">
+          Free postal entry route always available.
+          <a href="#" data-responsible>Please play responsibly</a>.
+          BeGambleAware.org
+        </p>
       </div>
     </footer>
 
@@ -496,6 +435,39 @@
 
     <!-- ===== WINNERS PAGE (rendered by JS) ===== -->
     <section class="compview winnersview" id="winnersView" aria-hidden="true" aria-label="Winners" data-lenis-prevent></section>
+
+    <!-- ===== GENERIC PAGE OVERLAY (checkout / account / postal / responsible / faq) ===== -->
+    <section class="compview panelview" id="panelView" aria-hidden="true" data-lenis-prevent></section>
+
+    <!-- ===== BASKET DRAWER ===== -->
+    <div class="drawer" id="basketDrawer" aria-hidden="true">
+      <div class="drawer__scrim" data-basket-close></div>
+      <aside class="drawer__panel" role="dialog" aria-modal="true" aria-label="Your basket" data-lenis-prevent>
+        <div class="drawer__head">
+          <h2>Your basket</h2>
+          <button class="drawer__close" data-basket-close aria-label="Close basket" type="button">&times;</button>
+        </div>
+        <div class="drawer__body" id="basketBody"></div>
+        <div class="drawer__foot" id="basketFoot"></div>
+      </aside>
+    </div>
+
+    <!-- ===== AGE GATE ===== -->
+    <div class="agegate" id="ageGate" aria-hidden="true">
+      <div class="agegate__panel" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+        <span class="agegate__mark">18+</span>
+        <h2 id="ageTitle">Are you 18 or over?</h2>
+        <p>In 4 A Win competitions are for adults aged 18 and over. Please confirm your age to continue.</p>
+        <div class="agegate__actions">
+          <button class="btn btn--accent btn--lg" id="ageYes" type="button">Yes, I am 18 or over</button>
+          <button class="btn btn--ghost btn--lg" id="ageNo" type="button">No</button>
+        </div>
+        <p class="agegate__fine">By entering you agree to our terms. A game of skill, please play responsibly.</p>
+      </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

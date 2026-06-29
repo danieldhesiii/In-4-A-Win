@@ -1,0 +1,13 @@
+{
+  "name": "In 4 A Win",
+  "short_name": "In4AWin",
+  "description": "Win cars, cash and luxury prizes for the price of a coffee. A game of skill.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#100f0c",
+  "theme_color": "#100f0c",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
