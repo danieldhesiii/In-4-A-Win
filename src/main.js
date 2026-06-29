@@ -2,10 +2,7 @@ import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Splitting from 'splitting'
-import Swiper from 'swiper'
-import { Autoplay } from 'swiper/modules'
 import 'splitting/dist/splitting.css'
-import 'swiper/css'
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 let lenis = null
@@ -917,7 +914,17 @@ function renderGrid() {
     return A.hours - B.hours
   })
   ids.sort((a, b) => (COMPETITIONS[a].soldOut ? 1 : 0) - (COMPETITIONS[b].soldOut ? 1 : 0))
-  compGrid.innerHTML = ids.map(compCard).join('') || '<p class="comps__empty">No competitions in this category right now.</p>'
+  const passCard = `
+    <article class="card card--pass" data-add-pass role="button" tabindex="0" aria-label="Get the In 4 A Win Pass">
+      <div class="card__body">
+        <span class="cbadge cbadge--instant card--pass__badge">Best value</span>
+        <h3 class="card__title">In 4 A Win Pass</h3>
+        <p class="card__meta">Auto-enter every weekly draw, skip the question each time, and unlock members-only instant wins.</p>
+        <div class="passcard__price"><b>£9.99</b><span>/ month</span></div>
+        <span class="btn btn--accent btn--sm">Get the Pass</span>
+      </div>
+    </article>`
+  compGrid.innerHTML = passCard + (ids.map(compCard).join('') || '<p class="comps__empty">No competitions in this category right now.</p>')
 }
 function renderCats() {
   if (!compCats) return
@@ -963,7 +970,9 @@ document.addEventListener('keydown', (e) => {
   }
   if (e.key === 'Enter' || e.key === ' ') {
     const t = e.target.closest('[data-comp][role="link"]')
-    if (t && COMPETITIONS[t.dataset.comp]) { e.preventDefault(); openCompetition(t.dataset.comp) }
+    if (t && COMPETITIONS[t.dataset.comp]) { e.preventDefault(); openCompetition(t.dataset.comp); return }
+    const p = e.target.closest('[data-add-pass]')
+    if (p) { e.preventDefault(); addPass() }
   }
 })
 function routeFromHash() {
@@ -1046,10 +1055,28 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     const target = document.querySelector(id)
     if (!target) return
     e.preventDefault()
-    if (lenis) lenis.scrollTo(target, { offset: -80 })
-    else target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
+    const wasOverlay = anyOverlayOpen()
+    if (compView.classList.contains('is-open')) closeCompetition()
+    if (winnersView.classList.contains('is-open')) closeWinners()
+    if (panelView.classList.contains('is-open')) hidePanel()
+    if (basketDrawer.classList.contains('is-open')) hideBasket()
+    closeMobileMenu()
+    const go = () => { if (lenis) lenis.scrollTo(target, { offset: -68 }); else target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }) }
+    if (wasOverlay) requestAnimationFrame(go); else go()
   })
 })
+
+// Mobile nav menu
+const navEl = document.getElementById('nav')
+const navToggle = document.getElementById('navToggle')
+function closeMobileMenu() { if (navEl) navEl.classList.remove('is-menu-open') }
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navEl.classList.toggle('is-menu-open')
+    navToggle.setAttribute('aria-expanded', navEl.classList.contains('is-menu-open') ? 'true' : 'false')
+  })
+  navEl.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', closeMobileMenu))
+}
 
 // Hero heading character reveal
 try {
@@ -1062,27 +1089,27 @@ try {
   }
 } catch (e) { /* heading stays static */ }
 
-// Winners continuous carousel
+// Winners: seamless infinite marquee. Duplicate the cards so the loop never
+// shows a reset point; pause only while the visitor is hovering or touching it.
 try {
-  const winnersSwiper = new Swiper('.winners__swiper', {
-    modules: [Autoplay],
-    loop: true,
-    loopAdditionalSlides: 3,
-    slidesPerView: 1.2,
-    spaceBetween: 16,
-    grabCursor: true,
-    speed: reduceMotion ? 500 : 4200,
-    autoplay: reduceMotion ? false : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
-    breakpoints: {
-      640: { slidesPerView: 2.4, spaceBetween: 18 },
-      1024: { slidesPerView: 3.6, spaceBetween: 20 },
-    },
-  })
-  const winNext = document.getElementById('winNext')
-  const winPrev = document.getElementById('winPrev')
-  if (winNext) winNext.addEventListener('click', () => winnersSwiper.slideNext(600))
-  if (winPrev) winPrev.addEventListener('click', () => winnersSwiper.slidePrev(600))
-} catch (e) { /* carousel optional */ }
+  const track = document.getElementById('winnersTrack')
+  if (track) {
+    const originals = [...track.children]
+    originals.forEach((n) => { const c = n.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c) })
+    if (reduceMotion) {
+      track.style.animation = 'none'
+    } else {
+      track.style.setProperty('--marquee-dur', originals.length * 5 + 's')
+      const pause = () => { track.style.animationPlayState = 'paused' }
+      const run = () => { track.style.animationPlayState = 'running' }
+      track.addEventListener('mouseenter', pause)
+      track.addEventListener('mouseleave', run)
+      track.addEventListener('pointerdown', pause)
+      window.addEventListener('pointerup', run)
+      window.addEventListener('pointercancel', run)
+    }
+  }
+} catch (e) { /* marquee optional */ }
 
 // Deep link on first load (#play-<id> or #winners-all)
 routeFromHash()

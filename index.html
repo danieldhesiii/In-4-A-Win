@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content="In 4 A Win - win dream cars, cash and luxury prizes from £1.20. A game of skill, new draws every week. Real winners, every time." />
     <meta name="theme-color" content="#100f0c" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -34,13 +34,16 @@
           <a href="#how">How it works</a>
         </nav>
         <div class="nav__actions">
-          <button class="btn btn--ghost btn--sm" data-account type="button">Sign in</button>
+          <button class="btn btn--ghost btn--sm nav__signin" data-account type="button">Sign in</button>
           <button class="nav__basket" id="basketBtn" data-basket type="button" aria-label="View basket">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M6 8h12l-1 11.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.8L6 8Z" />
               <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
             </svg>
             <span class="nav__basket-count" id="basketCount" hidden>0</span>
+          </button>
+          <button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+            <span></span><span></span><span></span>
           </button>
         </div>
       </div>
@@ -111,6 +114,20 @@
               </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <!-- ===== PASS PROMO BAR ===== -->
+      <section class="passbar">
+        <div class="passbar__inner">
+          <p class="passbar__text">
+            <b>In 4 A Win Pass.</b> Auto-enter every weekly draw and unlock members-only instant wins.
+          </p>
+          <div class="passbar__right">
+            <span class="passbar__price">£9.99<span>/mo</span></span>
+            <button class="btn btn--accent btn--sm" data-add-pass type="button">Get the Pass</button>
+            <a class="passbar__link" href="#pass">Learn more</a>
+          </div>
         </div>
       </section>
 
@@ -185,62 +202,37 @@
           <h2 class="section-title" data-reveal>This month's winners</h2>
         </div>
 
-        <div class="swiper winners__swiper">
-          <div class="swiper-wrapper">
-            <figure class="swiper-slide winner">
+        <div class="winners__marquee">
+          <div class="winners__track" id="winnersTrack">
+            <figure class="winner">
               <img src="/img/bmw-m2.jpg" alt="BMW M2 coupe" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Leah M. · Cardiff</h3>
-                <p>Won a BMW M2 + £5,000</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Leah M. · Cardiff</h3><p>Won a BMW M2 + £5,000</p></figcaption>
             </figure>
-            <figure class="swiper-slide winner">
+            <figure class="winner">
               <img src="/img/cash.jpg" alt="Cash prize" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Dev P. · Leicester</h3>
-                <p>Won £25,000 tax-free cash</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Dev P. · Leicester</h3><p>Won £25,000 tax-free cash</p></figcaption>
             </figure>
-            <figure class="swiper-slide winner">
+            <figure class="winner">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/MaldivesBungalows.jpg?width=640" alt="Maldives holiday" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Grace O. · Glasgow</h3>
-                <p>Won the Maldives getaway</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Grace O. · Glasgow</h3><p>Won the Maldives getaway</p></figcaption>
             </figure>
-            <figure class="swiper-slide winner">
+            <figure class="winner">
               <img src="/img/rolex.jpg" alt="Rolex Submariner watch" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Tom R. · Bristol</h3>
-                <p>Won a Rolex Submariner</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Tom R. · Bristol</h3><p>Won a Rolex Submariner</p></figcaption>
             </figure>
-            <figure class="swiper-slide winner">
+            <figure class="winner">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apple%20iPhone%2015%20Pro.jpg?width=640" alt="Apple iPhone 15 Pro" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Aisha K. · Manchester</h3>
-                <p>Won the Apple tech bundle</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Aisha K. · Manchester</h3><p>Won the Apple tech bundle</p></figcaption>
             </figure>
-            <figure class="swiper-slide winner">
+            <figure class="winner">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Land%20Rover%20Defender%2090%20%28L663%29%20IMG%209441.jpg?width=640" alt="Land Rover Defender 90" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Marcus T. · Newcastle</h3>
-                <p>Won a Land Rover Defender</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Marcus T. · Newcastle</h3><p>Won a Land Rover Defender</p></figcaption>
             </figure>
-            <figure class="swiper-slide winner">
+            <figure class="winner">
               <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gift%20card%20assortment.jpg?width=640" alt="Gift cards and vouchers" loading="lazy" />
-              <figcaption class="winner__cap">
-                <h3>Priya S. · Birmingham</h3>
-                <p>Won £2,000 in vouchers</p>
-              </figcaption>
+              <figcaption class="winner__cap"><h3>Priya S. · Birmingham</h3><p>Won £2,000 in vouchers</p></figcaption>
             </figure>
           </div>
-        </div>
-        <div class="winners__nav">
-          <button class="winners__btn" id="winPrev" aria-label="Previous winner">‹</button>
-          <button class="winners__btn" id="winNext" aria-label="Next winner">›</button>
         </div>
         <div class="winners__more">
           <button class="btn btn--ghost" data-winners-page>See all winners</button>
