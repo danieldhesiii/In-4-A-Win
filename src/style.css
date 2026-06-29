@@ -2439,11 +2439,25 @@ body.age-lock {
   .panelview__inner { padding: 1.75rem 1.1rem 4rem; }
   .winnersview__inner { padding: 1.75rem 1.1rem 4rem; }
   .compview__grid { padding: 1.5rem 1.1rem 4rem; }
+
+  /* keep two competitions side by side, just tighter */
+  .comps { padding-left: 1rem; padding-right: 1rem; }
+  .comps__grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .card__body { padding: 0.8rem; }
+  .card__title { font-size: 0.92rem; line-height: 1.2; letter-spacing: -0.01em; }
+  .card__meta { font-size: 0.74rem; }
+  .card__ticket { font-size: 0.72rem; padding: 0.25rem 0.5rem; }
+  .card__foot { margin-top: 0.9rem; }
+  .card__timer { font-size: 0.72rem; }
+  .card__cta { font-size: 0.78rem; }
+  .progress__labels { font-size: 0.7rem; }
+  .card--pass { grid-column: 1 / -1; }
+  .card--pass .card__body { padding: 1rem; }
+  .passcard__price b { font-size: 1.6rem; }
 }
 
-/* --- very small phone: single column where two would crush --- */
+/* --- very small phone: keep live competitions two-up, ease the rest --- */
 @media (max-width: 400px) {
-  .comps__grid { grid-template-columns: 1fr; }
   .trust__metrics { grid-template-columns: 1fr; }
   .wgrid { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr; }
