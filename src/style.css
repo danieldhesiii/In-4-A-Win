@@ -767,45 +767,301 @@ a {
 }
 
 /* ============================================================
-   STATS
+   WINNERS - "see all" entry
    ============================================================ */
-.stats {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-2);
+.winners__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.6rem;
 }
-.stats__row {
+
+/* ============================================================
+   TRUST & TRANSPARENCY
+   ============================================================ */
+.trust {
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+  padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+}
+.trust__inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
+}
+.trust__metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1.6rem;
+  margin-bottom: 3.5rem;
 }
-.stat {
+.metric {
   text-align: center;
+  padding: 1.6rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
 }
-.stat__num {
+.metric__num {
   display: block;
   font-family: "Clash Display", sans-serif;
   font-weight: 500;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
   letter-spacing: -0.03em;
   color: var(--text);
   font-variant-numeric: tabular-nums;
 }
-.stat__num::after {
+.metric__num::after {
   content: "";
   display: block;
-  width: 28px;
+  width: 26px;
   height: 2px;
   background: var(--accent);
   margin: 0.7rem auto 0;
 }
-.stat__label {
+.metric__label {
   margin-top: 0.6rem;
+  font-size: 0.84rem;
+  color: var(--text-2);
+}
+.trust__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+.reviews,
+.howdraw {
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  padding: 1.75rem;
+}
+.reviews__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.reviews__score {
+  font-family: "Clash Display", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text);
+}
+.reviews__meta {
+  margin-top: 0.3rem;
   font-size: 0.85rem;
   color: var(--text-2);
+}
+.reviews__list {
+  list-style: none;
+  display: grid;
+  gap: 1.1rem;
+}
+.reviews__list li {
+  border-left: 2px solid var(--accent-line);
+  padding-left: 1rem;
+}
+.reviews__list p {
+  font-size: 0.94rem;
+  color: var(--text);
+}
+.reviews__list cite {
+  display: block;
+  margin-top: 0.45rem;
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--text-2);
+}
+.howdraw__title {
+  font-family: "Clash Display", sans-serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.3rem;
+}
+.howdraw__steps {
+  list-style: none;
+  counter-reset: hd;
+  display: grid;
+  gap: 1.1rem;
+}
+.howdraw__steps li {
+  counter-increment: hd;
+  position: relative;
+  padding-left: 2.6rem;
+}
+.howdraw__steps li::before {
+  content: counter(hd);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: "Clash Display", sans-serif;
+  font-size: 0.9rem;
+}
+.howdraw__steps b {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.howdraw__steps span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-2);
+}
+.howdraw__note {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.84rem;
+  color: var(--text-3);
+}
+
+/* ============================================================
+   WINNERS PAGE (full-screen overlay)
+   ============================================================ */
+.winnersview__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+.winnersview__head {
+  max-width: 56ch;
+  margin-bottom: 2rem;
+}
+.winnersview__head h1 {
+  font-family: "Clash Display", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+.winnersview__head p {
+  margin-top: 0.8rem;
+  color: var(--text-2);
+}
+.wfilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2rem;
+}
+.wfilter__pill {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--text-2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.wfilter__pill:hover {
+  color: var(--text);
+  border-color: var(--text-2);
+}
+.wfilter__pill.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #241a06;
+}
+.wgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+.wcard {
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.wcard:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-2);
+}
+.wcard__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.wcard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wcard__value {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: rgba(16, 15, 12, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--r-pill);
+}
+.wcard__body {
+  padding: 1.25rem;
+}
+.wcard__prize {
+  font-family: "Clash Display", sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+.wcard__who {
+  margin-top: 0.3rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+}
+.wcard__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+.wcard__draw {
+  color: var(--accent);
+  font-weight: 600;
+}
+.wcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  font-size: 0.82rem;
+  color: var(--text-2);
+}
+.wcard__watch {
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.25s var(--ease);
+}
+.wcard__watch:hover {
+  color: var(--accent);
 }
 
 /* ============================================================
@@ -1333,9 +1589,14 @@ body.view-open {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .stats__row {
+  .trust__metrics {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 1rem;
+  }
+  .trust__cols {
+    grid-template-columns: 1fr;
+  }
+  .wgrid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .footer__top {
     grid-template-columns: 1fr 1fr;
@@ -1356,6 +1617,12 @@ body.view-open {
     padding-top: 110px;
   }
   .comps__grid {
+    grid-template-columns: 1fr;
+  }
+  .trust__metrics {
+    grid-template-columns: 1fr;
+  }
+  .wgrid {
     grid-template-columns: 1fr;
   }
   .footer__top {

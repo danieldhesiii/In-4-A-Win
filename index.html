@@ -26,7 +26,8 @@
         </a>
         <nav class="nav__links" aria-label="Primary">
           <a href="#competitions">Competitions</a>
-          <a href="#winners">Winners</a>
+          <a href="#winners-all" data-winners-page>Winners</a>
+          <a href="#trust">Trust</a>
           <a href="#how">How it works</a>
         </nav>
         <div class="nav__actions">
@@ -352,26 +353,88 @@
           <button class="winners__btn" id="winPrev" aria-label="Previous winner">‹</button>
           <button class="winners__btn" id="winNext" aria-label="Next winner">›</button>
         </div>
+        <div class="winners__more">
+          <button class="btn btn--ghost" data-winners-page>See all winners</button>
+        </div>
       </section>
 
-      <!-- ===== STATS ===== -->
-      <section class="stats">
-        <div class="stats__row">
-          <div class="stat" data-reveal>
-            <b class="stat__num js-count" data-to="4200000" data-prefix="£">0</b>
-            <span class="stat__label">Prizes given away</span>
+      <!-- ===== TRUST & TRANSPARENCY ===== -->
+      <section class="trust" id="trust">
+        <div class="trust__inner">
+          <div class="section-head section-head--center">
+            <span class="eyebrow" data-reveal>Built on trust</span>
+            <h2 class="section-title" data-reveal>Transparent by design</h2>
+            <p class="section-lead" data-reveal>
+              No hidden odds and no mystery draws. We show your chances before you
+              buy, stream every draw live, and let anyone verify the result.
+            </p>
           </div>
-          <div class="stat" data-reveal>
-            <b class="stat__num js-count" data-to="18742">0</b>
-            <span class="stat__label">Winners paid out</span>
+
+          <div class="trust__metrics">
+            <div class="metric" data-reveal>
+              <b class="metric__num js-count" data-to="4200000" data-prefix="£">0</b>
+              <span class="metric__label">Prizes given away</span>
+            </div>
+            <div class="metric" data-reveal>
+              <b class="metric__num js-count" data-to="18742">0</b>
+              <span class="metric__label">Winners paid out</span>
+            </div>
+            <div class="metric" data-reveal>
+              <b class="metric__num js-count" data-to="2291">0</b>
+              <span class="metric__label">Live draws completed</span>
+            </div>
+            <div class="metric" data-reveal>
+              <b class="metric__num js-count" data-to="48" data-suffix="h">0</b>
+              <span class="metric__label">Average payout time</span>
+            </div>
           </div>
-          <div class="stat" data-reveal>
-            <b class="stat__num js-count" data-to="48" data-suffix="h">0</b>
-            <span class="stat__label">Average payout time</span>
-          </div>
-          <div class="stat" data-reveal>
-            <b class="stat__num js-count" data-to="14">0</b>
-            <span class="stat__label">Live draws right now</span>
+
+          <div class="trust__cols">
+            <div class="reviews" data-reveal>
+              <div class="reviews__head">
+                <span class="reviews__score">4.8</span>
+                <div>
+                  <span class="stars" aria-hidden="true">★★★★★</span>
+                  <p class="reviews__meta">Rated Excellent · 21,438 reviews on Trustpilot</p>
+                </div>
+              </div>
+              <ul class="reviews__list">
+                <li>
+                  <p>"They actually show your odds before you buy. No other competition site does that, it feels honest."</p>
+                  <cite>Hannah B. · Leeds</cite>
+                </li>
+                <li>
+                  <p>"Won a Rolex on my third entry and it arrived two days later. The live draw made it feel completely legit."</p>
+                  <cite>Tom R. · Bristol</cite>
+                </li>
+                <li>
+                  <p>"Watched the draw on the stream and saw my name come up. The money was in my account by Friday."</p>
+                  <cite>Dev P. · Leicester</cite>
+                </li>
+              </ul>
+            </div>
+
+            <div class="howdraw" data-reveal>
+              <h3 class="howdraw__title">How we draw winners</h3>
+              <ol class="howdraw__steps">
+                <li>
+                  <b>Entries close</b>
+                  <span>When the competition timer hits zero, no more tickets are sold.</span>
+                </li>
+                <li>
+                  <b>Drawn live</b>
+                  <span>Every ticket gets a number and the winner is pulled live on our stream, so you can watch it happen.</span>
+                </li>
+                <li>
+                  <b>Independently verifiable</b>
+                  <span>The winning number comes from a publicly seeded random draw that anyone can re-check.</span>
+                </li>
+              </ol>
+              <p class="howdraw__note">
+                Licensed prize-competition operator. Over 18s only. A game of skill,
+                with a free postal entry route always available.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -430,6 +493,9 @@
 
     <!-- ===== COMPETITION DETAIL PAGE (rendered by JS) ===== -->
     <section class="compview" id="compView" aria-hidden="true" aria-label="Competition details" data-lenis-prevent></section>
+
+    <!-- ===== WINNERS PAGE (rendered by JS) ===== -->
+    <section class="compview winnersview" id="winnersView" aria-hidden="true" aria-label="Winners" data-lenis-prevent></section>
 
     <script type="module" src="/src/main.js"></script>
   </body>

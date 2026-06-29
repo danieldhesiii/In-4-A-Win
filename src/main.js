@@ -359,6 +359,7 @@ function hideView() {
 }
 function openCompetition(id) {
   if (!COMPETITIONS[id]) return
+  hideWinners()
   showView(id)
   if (location.hash !== '#play-' + id) history.pushState({ comp: id }, '', '#play-' + id)
 }
@@ -367,17 +368,118 @@ function closeCompetition() {
   if (location.hash.startsWith('#play-')) history.pushState({}, '', location.pathname + location.search)
 }
 
-/* Single delegated handler: any click on (or inside) a [data-comp] opens it. */
+/* ---- Winners page ---- */
+const WINNERS = [
+  { name: 'Sofia N.', loc: 'Brighton', prize: 'Porsche 911 GT3 RS', value: '£92,500', date: '17 Jun 2026', draw: '2291', tickets: 18, cat: 'Cars', img: WM + 'Porsche%20911%20GT3%20RS%20%282022%29%201X7A7164.jpg?width=640' },
+  { name: 'Leah M.', loc: 'Cardiff', prize: 'BMW M2 + £5,000', value: '£62,000', date: '14 Jun 2026', draw: '2288', tickets: 12, cat: 'Cars', img: WM + 'BMW%20G87%20M2%201X7A6997.jpg?width=640' },
+  { name: 'Dev P.', loc: 'Leicester', prize: '£25,000 Tax-Free Cash', value: '£25,000', date: '11 Jun 2026', draw: '2285', tickets: 30, cat: 'Cash', img: WM + 'White-note-50-pounds.jpg?width=640' },
+  { name: 'Grace O.', loc: 'Glasgow', prize: 'Maldives Getaway for Two', value: '£9,800', date: '7 Jun 2026', draw: '2281', tickets: 8, cat: 'Travel', img: WM + 'MaldivesBungalows.jpg?width=640' },
+  { name: 'Tom R.', loc: 'Bristol', prize: 'Rolex Submariner Date', value: '£13,200', date: '4 Jun 2026', draw: '2278', tickets: 5, cat: 'Luxury', img: WM + 'Rolex-Submariner.jpg?width=640' },
+  { name: 'Aisha K.', loc: 'Manchester', prize: 'Ultimate Apple Tech Bundle', value: '£6,400', date: '31 May 2026', draw: '2274', tickets: 15, cat: 'Tech', img: WM + 'Apple%20iPhone%2015%20Pro.jpg?width=640' },
+  { name: 'Marcus T.', loc: 'Newcastle', prize: 'Land Rover Defender 90', value: '£68,000', date: '28 May 2026', draw: '2270', tickets: 22, cat: 'Cars', img: WM + 'Land%20Rover%20Defender%2090%20%28L663%29%20IMG%209441.jpg?width=640' },
+  { name: 'Priya S.', loc: 'Birmingham', prize: '£2,000 Voucher Vault', value: '£2,000', date: '24 May 2026', draw: '2266', tickets: 6, cat: 'Vouchers', img: WM + 'Gift%20card%20assortment.jpg?width=640' },
+  { name: 'Owen D.', loc: 'Swansea', prize: '£10,000 Tax-Free Cash', value: '£10,000', date: '21 May 2026', draw: '2262', tickets: 9, cat: 'Cash', img: WM + 'White-note-50-pounds.jpg?width=640' },
+  { name: 'Hannah B.', loc: 'Leeds', prize: 'Rolex Submariner Date', value: '£13,200', date: '17 May 2026', draw: '2258', tickets: 4, cat: 'Luxury', img: WM + 'Rolex-Submariner.jpg?width=640' },
+  { name: 'Reuben A.', loc: 'Nottingham', prize: 'Maldives Getaway for Two', value: '£9,800', date: '14 May 2026', draw: '2254', tickets: 11, cat: 'Travel', img: WM + 'MaldivesBungalows.jpg?width=640' },
+  { name: 'Mia W.', loc: 'Liverpool', prize: 'MacBook Pro 16-inch', value: '£2,900', date: '10 May 2026', draw: '2250', tickets: 7, cat: 'Tech', img: WM + 'Apple%20MacBook%20Pro%2016%22%20M2%20Max.jpg?width=640' },
+]
+const WINNER_CATS = ['All', ...[...new Set(WINNERS.map((w) => w.cat))]]
+const winnersView = document.getElementById('winnersView')
+let lastFocusedW = null
+
+function winnerCard(w) {
+  return `
+    <article class="wcard" data-cat="${w.cat}">
+      <div class="wcard__media">
+        <img src="${w.img}" alt="${w.prize}" loading="lazy" />
+        <span class="wcard__value">${w.value}</span>
+      </div>
+      <div class="wcard__body">
+        <h3 class="wcard__prize">${w.prize}</h3>
+        <p class="wcard__who">${w.name} · ${w.loc}</p>
+        <div class="wcard__meta">
+          <span>${w.date}</span>
+          <span class="wcard__draw">Draw #${w.draw} <span aria-hidden="true">&#10003;</span></span>
+        </div>
+        <div class="wcard__foot">
+          <span>Won with ${w.tickets} ticket${w.tickets > 1 ? 's' : ''}</span>
+          <a href="#" class="wcard__watch">Watch the draw &rarr;</a>
+        </div>
+      </div>
+    </article>`
+}
+function renderWinners(filter) {
+  const f = filter || 'All'
+  const list = f === 'All' ? WINNERS : WINNERS.filter((w) => w.cat === f)
+  winnersView.innerHTML = `
+    <div class="compview__bar">
+      <button class="compview__back" id="winBack" type="button">&larr; Back</button>
+      <span class="compview__cat">Winners</span>
+    </div>
+    <div class="winnersview__inner">
+      <div class="winnersview__head">
+        <h1>Our winners</h1>
+        <p>Every prize below was drawn live on stream and is independently verifiable. We don't hide a single result.</p>
+      </div>
+      <div class="wfilter" id="wfilter">
+        ${WINNER_CATS.map((c) => `<button type="button" class="wfilter__pill${c === f ? ' is-active' : ''}" data-filter="${c}">${c}</button>`).join('')}
+      </div>
+      <div class="wgrid">${list.map(winnerCard).join('')}</div>
+    </div>`
+  winnersView.querySelector('#winBack').addEventListener('click', closeWinners)
+  winnersView.querySelectorAll('.wfilter__pill').forEach((p) =>
+    p.addEventListener('click', () => {
+      renderWinners(p.dataset.filter)
+      winnersView.scrollTop = 0
+    })
+  )
+}
+function showWinners(filter) {
+  lastFocusedW = document.activeElement
+  renderWinners(filter)
+  winnersView.classList.add('is-open')
+  winnersView.setAttribute('aria-hidden', 'false')
+  document.body.classList.add('view-open')
+  try { if (lenis) lenis.stop() } catch (e) {}
+  winnersView.scrollTop = 0
+  const b = winnersView.querySelector('#winBack')
+  if (b) b.focus()
+}
+function hideWinners() {
+  winnersView.classList.remove('is-open')
+  winnersView.setAttribute('aria-hidden', 'true')
+  if (!compView.classList.contains('is-open')) document.body.classList.remove('view-open')
+  try { if (lenis && !compView.classList.contains('is-open')) lenis.start() } catch (e) {}
+  if (lastFocusedW && lastFocusedW.focus) lastFocusedW.focus()
+}
+function openWinners() {
+  hideView()
+  showWinners('All')
+  if (location.hash !== '#winners-all') history.pushState({ winners: true }, '', '#winners-all')
+}
+function closeWinners() {
+  hideWinners()
+  if (location.hash.startsWith('#winners-all')) history.pushState({}, '', location.pathname + location.search)
+}
+
+/* Single delegated handler: open competitions and the winners page. */
 document.addEventListener('click', (e) => {
-  const trigger = e.target.closest('[data-comp]')
-  if (trigger && COMPETITIONS[trigger.dataset.comp]) {
+  const comp = e.target.closest('[data-comp]')
+  if (comp && COMPETITIONS[comp.dataset.comp]) {
     e.preventDefault()
-    openCompetition(trigger.dataset.comp)
+    openCompetition(comp.dataset.comp)
+    return
+  }
+  const win = e.target.closest('[data-winners-page]')
+  if (win) {
+    e.preventDefault()
+    openWinners()
   }
 })
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && compView.classList.contains('is-open')) {
-    closeCompetition()
+  if (e.key === 'Escape') {
+    if (compView.classList.contains('is-open')) closeCompetition()
+    else if (winnersView.classList.contains('is-open')) closeWinners()
     return
   }
   if (e.key === 'Enter' || e.key === ' ') {
@@ -388,11 +490,13 @@ document.addEventListener('keydown', (e) => {
     }
   }
 })
-window.addEventListener('popstate', () => {
+function routeFromHash() {
   const m = location.hash.match(/^#play-(.+)/)
-  if (m && COMPETITIONS[m[1]]) showView(m[1])
-  else hideView()
-})
+  if (m && COMPETITIONS[m[1]]) { hideWinners(); showView(m[1]) }
+  else if (location.hash === '#winners-all') { hideView(); showWinners('All') }
+  else { hideView(); hideWinners() }
+}
+window.addEventListener('popstate', routeFromHash)
 
 /* =================================================================
    2. Visual enhancements (never block the critical path above)
@@ -462,7 +566,7 @@ try {
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href')
-    if (id.length <= 1 || id.startsWith('#play')) return
+    if (id.length <= 1 || id.startsWith('#play') || id === '#winners-all') return
     const target = document.querySelector(id)
     if (!target) return
     e.preventDefault()
@@ -504,6 +608,5 @@ try {
   if (winPrev) winPrev.addEventListener('click', () => winnersSwiper.slidePrev(600))
 } catch (e) { /* carousel optional */ }
 
-// Deep link (#play-<id>) on first load
-const deep = location.hash.match(/^#play-(.+)/)
-if (deep && COMPETITIONS[deep[1]]) showView(deep[1])
+// Deep link on first load (#play-<id> or #winners-all)
+routeFromHash()
